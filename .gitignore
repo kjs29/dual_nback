@@ -1,3 +1,5 @@
 __pycache__
 main.app
 setup.py
+dist
+dual_nback.zip

@@ -19,7 +19,6 @@ pygame.display.set_icon(icon)
 fps_clock = pygame.time.Clock()
 fps = 60
 
-
 # color
 color = {"black" : (0, 0, 0), "white" : (255, 255, 255), "green" : (0, 255, 0),
          "grey" : (175, 173, 169), "red" : (255, 0, 0), "light green" : (144, 238, 144),
@@ -31,14 +30,14 @@ color = {"black" : (0, 0, 0), "white" : (255, 255, 255), "green" : (0, 255, 0),
         }
 
 # font
-font18 = pygame.font.Font("gameplay.ttf", 18)
-font37 = pygame.font.Font("fragmentcore.otf", 37)
-font70 = pygame.font.Font("cleanfont.ttf", 70)
-font60_clean = pygame.font.Font("fragmentcore.otf", 60)
-font_banknumbers = pygame.font.Font("F25_Bank_Printer.otf",50)
-font70_clean = pygame.font.Font("fragmentcore.otf", 70)
-font100 = pygame.font.Font("cleanfont.ttf", 100)
-font150_number = pygame.font.Font("fragmentcore.otf", 150)
+font18 = pygame.font.Font("font/gameplay.ttf", 18)
+font37 = pygame.font.Font("font/fragmentcore.otf", 37)
+font70 = pygame.font.Font("font/cleanfont.ttf", 70)
+font60_clean = pygame.font.Font("font/fragmentcore.otf", 60)
+font_banknumbers = pygame.font.Font("font/F25_bank_Printer.otf",50)
+font70_clean = pygame.font.Font("font/fragmentcore.otf", 70)
+font100 = pygame.font.Font("font/cleanfont.ttf", 100)
+font150_number = pygame.font.Font("font/fragmentcore.otf", 150)
 
 # game control
 """
@@ -47,7 +46,7 @@ main menu: 0, game screen: 1, scorescreen(afterthegameplay): 2, settings: 3, sco
 game = 0
 
 
-def multiline_text(screen,size,text,color,coor,linespace = 10, fontname = "sketched.ttf"):
+def multiline_text(screen,size,text,color,coor,linespace = 10, fontname = "font/sketched.ttf"):
     
     text_list = text.splitlines()
     for i,e in enumerate(text_list):
@@ -539,9 +538,9 @@ while run:
                     pygame.draw.rect(screen, color["white"], third[n], border_radius = 5)
                 pygame.draw.rect(screen, color["white"], second[0], border_radius = 5)
                 pygame.draw.rect(screen, color["white"], second[2], border_radius = 5)
-                multiline_text(screen, 74, texts_mainmenu[0], color["white"], (350 + 150, 350 + 100), 10,"sketched.ttf")
+                multiline_text(screen, 74, texts_mainmenu[0], color["white"], (350 + 150, 350 + 100), 10,"font/sketched.ttf")
             if 0 < current_count - start_count < 2.9:
-                show_text(screen, "Press enter to skip", (screenwidth / 2, screenheight / 2),color["white"], 25, "cleanfont.ttf")
+                show_text(screen, "Press enter to skip", (screenwidth / 2, screenheight / 2),color["white"], 25, "font/cleanfont.ttf")
                 if clicked(button5.surface_rect):
                     main_menu_flag = True
             
@@ -604,25 +603,25 @@ while run:
             if clicked(button9.surface_rect):
                 run = False
 
-            show_text(screen, "1", (305, 55), color["light grey"], 20, "F25_Bank_Printer.otf")
-            show_text(screen, "2", (625, 55), color["light grey"], 20, "F25_Bank_Printer.otf")
-            show_text(screen, "3", (945, 55), color["light grey"], 20, "F25_Bank_Printer.otf")
-            show_text(screen, "4", (305, 375), color["light grey"], 20, "F25_Bank_Printer.otf")
-            show_text(screen, "5", (625, 375), color["light grey"], 20, "F25_Bank_Printer.otf")
-            show_text(screen, "6", (945, 375), color["light grey"], 20, "F25_Bank_Printer.otf")
-            show_text(screen, "7", (305, 695), color["light grey"], 20, "F25_Bank_Printer.otf")
-            show_text(screen, "8", (625, 695), color["light grey"], 20, "F25_Bank_Printer.otf")
-            show_text(screen, "9", (945, 695), color["light grey"], 20, "F25_Bank_Printer.otf")
+            show_text(screen, "1", (305, 55), color["light grey"], 20, "font/F25_bank_Printer.otf")
+            show_text(screen, "2", (625, 55), color["light grey"], 20, "font/F25_bank_Printer.otf")
+            show_text(screen, "3", (945, 55), color["light grey"], 20, "font/F25_bank_Printer.otf")
+            show_text(screen, "4", (305, 375), color["light grey"], 20, "font/F25_bank_Printer.otf")
+            show_text(screen, "5", (625, 375), color["light grey"], 20, "font/F25_bank_Printer.otf")
+            show_text(screen, "6", (945, 375), color["light grey"], 20, "font/F25_bank_Printer.otf")
+            show_text(screen, "7", (305, 695), color["light grey"], 20, "font/F25_bank_Printer.otf")
+            show_text(screen, "8", (625, 695), color["light grey"], 20, "font/F25_bank_Printer.otf")
+            show_text(screen, "9", (945, 695), color["light grey"], 20, "font/F25_bank_Printer.otf")
             if tile_location[4].collidepoint(mouse_point) == False:
                 texts_mainmenu[0] = "Dual\nN back"
-                multiline_text(screen, 74, texts_mainmenu[0], color["white"], (350 + 150, 350 + 100), 10, "sketched.ttf")
+                multiline_text(screen, 74, texts_mainmenu[0], color["white"], (350 + 150, 350 + 100), 10, "font/sketched.ttf")
             else:
                 texts_mainmenu[0] = "Play"
-                show_text(screen, texts_mainmenu[0],(350 + 150, 350 + 150, 300), color["white"], 74, "sketched.ttf")
+                show_text(screen, texts_mainmenu[0],(350 + 150, 350 + 150, 300), color["white"], 74, "font/sketched.ttf")
             multiline_text(screen, 70, texts_mainmenu[1], color["yellow"], (30 + 150, 20 + 80), 1)
             multiline_text(screen, 65, texts_mainmenu[3], color["green"], (30 + 150, 670 + 110), 1)
             multiline_text(screen, 70, texts_mainmenu[4], color["sky blue"], (670 + 150, 140))
-            show_text(screen, texts_mainmenu[2], (670 + 150, 670 + 150), color["red"], 90, "sketched.ttf")
+            show_text(screen, texts_mainmenu[2], (670 + 150, 670 + 150), color["red"], 90, "font/sketched.ttf")
 
     # game screen
     elif game == 1:
@@ -659,7 +658,7 @@ while run:
                     imgs1_rect[f"img{n}_rect"].center = - 200, -200
                     imgs2_rect[f"img{n}_rect"].center = - 200, -200
                     imgs3_rect[f"img{n}_rect"].center = - 200, -200
-                show_text(screen, lst_texts_in_game[0], texts_in_game["Start!"], color["white"], 90,"sketched.ttf")
+                show_text(screen, lst_texts_in_game[0], texts_in_game["Start!"], color["white"], 90,"font/sketched.ttf")
                 for i in range(len(tile_location)):
                     pygame.draw.rect(screen, color["white"], tile_location[i], width = 3, border_radius = 5)
             
@@ -673,17 +672,17 @@ while run:
             if game_pause_flag == True:
                 screen.fill(color["black"])
                 #new_current_count =start_count
-                show_text(screen, texts_pause_screen[0], (screenwidth / 2, 400), color["white"], 70, "sketched.ttf")
-                show_text(screen,texts_pause_screen[1], (screenwidth / 2, 550), color["white"], 50, "sketched.ttf")
-                show_text(screen, texts_pause_screen[2], (screenwidth / 2, 700), color["white"], 50, "sketched.ttf")
+                show_text(screen, texts_pause_screen[0], (screenwidth / 2, 400), color["white"], 70, "font/sketched.ttf")
+                show_text(screen,texts_pause_screen[1], (screenwidth / 2, 550), color["white"], 50, "font/sketched.ttf")
+                show_text(screen, texts_pause_screen[2], (screenwidth / 2, 700), color["white"], 50, "font/sketched.ttf")
                 if hovered(pygame.Rect(375, 500, 250, 100)):
                     pygame.draw.rect(screen, color["white"], (375, 500, 250, 100), width = 3, border_radius = 2)
-                    show_text(screen, texts_pause_screen[3], (screenwidth / 2, 620), color["white"], 30,"cleanfont.ttf")
+                    show_text(screen, texts_pause_screen[3], (screenwidth / 2, 620), color["white"], 30,"font/cleanfont.ttf")
                 if clicked(pygame.Rect(375, 500, 250, 100)):
                     game_pause_flag = False
                 if hovered(pygame.Rect(330, 655, 340, 100)):
                     pygame.draw.rect(screen, color["white"], (330, 655, 340, 100), width = 3, border_radius = 2)
-                    show_text(screen, texts_pause_screen[4], (screenwidth / 2, 775), color["white"], 30, "cleanfont.ttf")
+                    show_text(screen, texts_pause_screen[4], (screenwidth / 2, 775), color["white"], 30, "font/cleanfont.ttf")
                 if clicked(pygame.Rect(330, 655, 340, 100)):
                     screenheight = 1000
                     screen = pygame.display.set_mode((screenwidth, screenheight))
@@ -752,47 +751,47 @@ while run:
                 elif (100 <= level_system["tries"] and level_system["n6_exp"] >= 30) or level_system["n6_exp"] >= 60:
                     pygame.draw.rect(screen, color["dark dark grey"], (540, 1035, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "F25_Bank_Printer.otf")
+                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
                 # red
                 elif (100 <= level_system["tries"] and level_system["n5_exp"] >= 25) or level_system["n5_exp"] >= 50:
                     pygame.draw.rect(screen, color["red"], (540, 1035, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "F25_Bank_Printer.otf")
+                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
                 # brown
                 elif (80 <= level_system["tries"] and level_system["n4_exp"] >= 20) or level_system["n4_exp"] >= 40:
                     pygame.draw.rect(screen, color["brown"], (540, 1035, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "F25_Bank_Printer.otf")
+                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
                 # green
                 elif (50 <= level_system["tries"] and level_system["n3_exp"] >= 15) or level_system["n3_exp"] >= 30:
                     pygame.draw.rect(screen, color["green"], (540, 1035, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "F25_Bank_Printer.otf")
+                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
                 # blue
                 elif (50 <= level_system["tries"] and level_system["n2_exp"] >= 10) or level_system["n2_exp"] >= 20:
                     pygame.draw.rect(screen, color["sky blue"], (540, 1035, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "F25_Bank_Printer.otf")
+                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
                 # yellow
                 elif (50 <= level_system["tries"] and level_system["n1_exp"] >= 5) or level_system["n1_exp"] >= 10:
                     pygame.draw.rect(screen, color["yellow"], (540, 1035, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "F25_Bank_Printer.otf")
+                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
                 # white
                 elif 0 <= level_system["tries"] <= 49:
                     pygame.draw.rect(screen, color["white"], (540, 1035, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "F25_Bank_Printer.otf")
+                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
                 else:
                     pygame.draw.rect(screen, color["white"], (540, 1035, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "F25_Bank_Printer.otf")
+                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
 
                 # N back text appearing
-                show_text(screen, f"N : {current_nback} back",(screenwidth / 2 - 100, 1000), color["white"], 20, "fragmentcore.otf")
+                show_text(screen, f"N : {current_nback} back",(screenwidth / 2 - 100, 1000), color["white"], 20, "font/fragmentcore.otf")
                 
                 # Time left appearing
-                show_text(screen,"Time left :", (screenwidth / 2 + 100, 1000), color["white"], 20, "fragmentcore.otf")
+                show_text(screen,"Time left :", (screenwidth / 2 + 100, 1000), color["white"], 20, "font/fragmentcore.otf")
 
                 # Progress text appearing
                 text_progress = font37.render(f"{counter+1} / {the_number_of_questions}", True, color["white"])
@@ -803,8 +802,8 @@ while run:
                 screen.blit(text_position, text_position_rect)
                 screen.blit(text_numbers, text_numbers_rect)
                 screen.blit(text_pause, text_pause_rect)
-                show_text(screen, "(P)", (420, 1138), color["not too bright white"], 30, "cleanfont.ttf")
-                show_text(screen, "(S)", (580, 1138), color["not too bright white"], 30, "cleanfont.ttf")
+                show_text(screen, "(P)", (420, 1138), color["not too bright white"], 30, "font/cleanfont.ttf")
+                show_text(screen, "(S)", (580, 1138), color["not too bright white"], 30, "font/cleanfont.ttf")
                 screen.blit(text_stop, text_stop_rect)
                 screen.blit(button_position_O, button_position_O_rect)
                 screen.blit(button_position_X, button_position_X_rect)
@@ -903,11 +902,11 @@ while run:
                 
                 # countdown appearing
                 if the_duration_between_each_number - 3 <= rem < the_duration_between_each_number - 2:
-                    show_text(screen,"3", (screenwidth / 2 + 150, 1000), color["white"], 20, "fragmentcore.otf")
+                    show_text(screen,"3", (screenwidth / 2 + 150, 1000), color["white"], 20, "font/fragmentcore.otf")
                 if the_duration_between_each_number - 2 <= rem < the_duration_between_each_number - 1:
-                    show_text(screen,"2", (screenwidth / 2 + 150, 1000), color["white"], 20, "fragmentcore.otf")
+                    show_text(screen,"2", (screenwidth / 2 + 150, 1000), color["white"], 20, "font/fragmentcore.otf")
                 if the_duration_between_each_number - 1 <= rem < the_duration_between_each_number - 0:
-                    show_text(screen,"1", (screenwidth / 2 + 150, 1000), color["white"], 20, "fragmentcore.otf")
+                    show_text(screen,"1", (screenwidth / 2 + 150, 1000), color["white"], 20, "font/fragmentcore.otf")
                 
                 # number appearing sound
                 if rem == 0.1 and sound_number_appear_flag == False:
@@ -1220,70 +1219,70 @@ while run:
                 print(each)
             
         if texts_score[2] >= 90:
-            show_text(screen, str(texts_score[2]) + "%", (screenwidth / 4, 450), color["green"], 80, "sketched.ttf")
+            show_text(screen, str(texts_score[2]) + "%", (screenwidth / 4, 450), color["green"], 80, "font/sketched.ttf")
         elif texts_score[2] >= 50:
-            show_text(screen, str(texts_score[2]) + "%", (screenwidth / 4, 450), color["white"], 80, "sketched.ttf")
+            show_text(screen, str(texts_score[2]) + "%", (screenwidth / 4, 450), color["white"], 80, "font/sketched.ttf")
         elif texts_score[2] >= 30:
-            show_text(screen, str(texts_score[2]) + "%", (screenwidth / 4, 450), color["yellow"], 80, "sketched.ttf")
+            show_text(screen, str(texts_score[2]) + "%", (screenwidth / 4, 450), color["yellow"], 80, "font/sketched.ttf")
         else:
-            show_text(screen, str(texts_score[2]) + "%", (screenwidth / 4, 450), color["red"], 80, "sketched.ttf")
+            show_text(screen, str(texts_score[2]) + "%", (screenwidth / 4, 450), color["red"], 80, "font/sketched.ttf")
 
         if texts_score[1] >= 90:
-            show_text(screen, str(texts_score[1]) + "%", (screenwidth / 4 * 3, 450), color["green"], 80, "sketched.ttf")
+            show_text(screen, str(texts_score[1]) + "%", (screenwidth / 4 * 3, 450), color["green"], 80, "font/sketched.ttf")
         elif texts_score[1] >= 50:
-            show_text(screen, str(texts_score[1]) + "%", (screenwidth / 4 * 3, 450), color["white"], 80, "sketched.ttf")
+            show_text(screen, str(texts_score[1]) + "%", (screenwidth / 4 * 3, 450), color["white"], 80, "font/sketched.ttf")
         elif texts_score[1] >= 30:
-            show_text(screen, str(texts_score[1]) + "%", (screenwidth / 4 *3, 450), color["yellow"], 80, "sketched.ttf")
+            show_text(screen, str(texts_score[1]) + "%", (screenwidth / 4 *3, 450), color["yellow"], 80, "font/sketched.ttf")
         else:
-            show_text(screen, str(texts_score[1]) + "%", (screenwidth / 4 * 3, 450), color["red"], 80, "sketched.ttf")
-        show_text(screen, texts_score[0], (screenwidth / 2, 100), color["white"], 100, "sketched.ttf")
-        show_text(screen,f"Current N : {current_nback} back", (screenwidth / 2, 220), color["white"], 30, "F25_Bank_Printer.otf")
-        show_text(screen,f"The number of events : {the_number_of_questions}", (screenwidth / 2, 260), color["white"], 30, "F25_Bank_Printer.otf")
-        show_text(screen, texts_score[3], (screenwidth / 4, 350), color["white"], 50, "F25_Bank_Printer.otf")
-        show_text(screen, texts_score[4], (screenwidth / 4 * 3, 350), color["white"], 50, "F25_Bank_Printer.otf")
-        show_text(screen,texts_score[5], (screenwidth / 2, 770), color["white"], 25, "F25_Bank_Printer.otf")
-        show_text(screen, texts_score[6], (screenwidth / 2, 700), color["white"], 25, "F25_Bank_Printer.otf")
-        show_text(screen, texts_score[7], (screenwidth / 2, 840), color["white"], 30, "F25_Bank_Printer.otf")
-        show_text(screen, texts_score[8], (screenwidth / 2, 910), color["white"], 30, "F25_Bank_Printer.otf")
+            show_text(screen, str(texts_score[1]) + "%", (screenwidth / 4 * 3, 450), color["red"], 80, "font/sketched.ttf")
+        show_text(screen, texts_score[0], (screenwidth / 2, 100), color["white"], 100, "font/sketched.ttf")
+        show_text(screen,f"Current N : {current_nback} back", (screenwidth / 2, 220), color["white"], 30, "font/F25_bank_Printer.otf")
+        show_text(screen,f"The number of events : {the_number_of_questions}", (screenwidth / 2, 260), color["white"], 30, "font/F25_bank_Printer.otf")
+        show_text(screen, texts_score[3], (screenwidth / 4, 350), color["white"], 50, "font/F25_bank_Printer.otf")
+        show_text(screen, texts_score[4], (screenwidth / 4 * 3, 350), color["white"], 50, "font/F25_bank_Printer.otf")
+        show_text(screen,texts_score[5], (screenwidth / 2, 770), color["white"], 25, "font/F25_bank_Printer.otf")
+        show_text(screen, texts_score[6], (screenwidth / 2, 700), color["white"], 25, "font/F25_bank_Printer.otf")
+        show_text(screen, texts_score[7], (screenwidth / 2, 840), color["white"], 30, "font/F25_bank_Printer.otf")
+        show_text(screen, texts_score[8], (screenwidth / 2, 910), color["white"], 30, "font/F25_bank_Printer.otf")
         
  
         if the_number_of_questions < current_nback * 3:
             text_score_helper = f"Increase the number of events to {current_nback * 3}\nto earn a '{current_nback} back' point!"
-            show_text(screen, text_score_helper, (screenwidth / 2, 580), color["white"], 15, "F25_Bank_Printer.otf")
+            show_text(screen, text_score_helper, (screenwidth / 2, 580), color["white"], 15, "font/F25_bank_Printer.otf")
             if (texts_score[2] < 90) or (texts_score[1] < 90):
-                show_text(screen, f"Score 90 percent or higher to earn a '{current_nback} back' point!", (screenwidth / 2, 620), color["white"], 15, "F25_Bank_Printer.otf")
+                show_text(screen, f"Score 90 percent or higher to earn a '{current_nback} back' point!", (screenwidth / 2, 620), color["white"], 15, "font/F25_bank_Printer.otf")
         elif the_number_of_questions >= current_nback * 3:
             if (texts_score[2] < 90) or (texts_score[1] < 90):
-                show_text(screen, f"Score 90 percent or higher to earn a '{current_nback} back' point!", (screenwidth / 2, 620), color["white"], 15, "F25_Bank_Printer.otf")
+                show_text(screen, f"Score 90 percent or higher to earn a '{current_nback} back' point!", (screenwidth / 2, 620), color["white"], 15, "font/F25_bank_Printer.otf")
             else:
                 if stop_flag == True:
-                    show_text(screen, "Because you stopped the game, you can't earn a point", (screenwidth / 2, 590), color["white"], 15, "F25_Bank_Printer.otf")
+                    show_text(screen, "Because you stopped the game, you can't earn a point", (screenwidth / 2, 590), color["white"], 15, "font/F25_bank_Printer.otf")
                 elif level_flag == True:
-                    show_text(screen, "Good job! Play new game to earn a point!", (screenwidth / 2, 590), color["white"], 15, "F25_Bank_Printer.otf")
+                    show_text(screen, "Good job! Play new game to earn a point!", (screenwidth / 2, 590), color["white"], 15, "font/F25_bank_Printer.otf")
                 else:
-                    show_text(screen, f"{current_nback} back point earned!", (screenwidth / 2, 590), color["white"], 15, "F25_Bank_Printer.otf")
+                    show_text(screen, f"{current_nback} back point earned!", (screenwidth / 2, 590), color["white"], 15, "font/F25_bank_Printer.otf")
         
         if button_play_with_the_same_sequence.surface_rect.collidepoint(pygame.mouse.get_pos()):
             pygame.draw.rect(screen, color["sky blue"], (260, 668, 480, 64), width = 5)
-            show_text(screen, "Press 1", (785,700),color["white"],15,"F25_Bank_Printer.otf")
+            show_text(screen, "Press 1", (785,700),color["white"],15,"font/F25_bank_Printer.otf")
         else:
             pygame.draw.rect(screen, color["dark grey"], (260, 668, 480, 64), width = 5)
 
         if button_save_result.surface_rect.collidepoint(pygame.mouse.get_pos()):
             pygame.draw.rect(screen, color["white"], (260, 738, 480, 64), width = 5)
-            show_text(screen, "Press 2", (785,770),color["white"],15,"F25_Bank_Printer.otf")
+            show_text(screen, "Press 2", (785,770),color["white"],15,"font/F25_bank_Printer.otf")
         else:
             pygame.draw.rect(screen, color["dark grey"], (260, 738, 480, 64), width = 5)
         
         if button_new_game.surface_rect.collidepoint(pygame.mouse.get_pos()):
             pygame.draw.rect(screen, color["green"], (260, 808, 480, 64), width = 5)
-            show_text(screen, "Press 3", (785,840),color["white"],15,"F25_Bank_Printer.otf")
+            show_text(screen, "Press 3", (785,840),color["white"],15,"font/F25_bank_Printer.otf")
         else:
             pygame.draw.rect(screen, color["dark grey"], (260, 808, 480, 64), width = 5)
 
         if button_main_menu.surface_rect.collidepoint(pygame.mouse.get_pos()):
             pygame.draw.rect(screen, color["yellow"], (260, 878, 480, 64), width = 5)
-            show_text(screen, "Press 4", (785,910),color["white"],15,"F25_Bank_Printer.otf")
+            show_text(screen, "Press 4", (785,910),color["white"],15,"font/F25_bank_Printer.otf")
         else:
             pygame.draw.rect(screen, color["dark grey"], (260, 878, 480, 64), width = 5)
         
@@ -1476,23 +1475,23 @@ while run:
     elif game == 3:
         screen.fill(color["black"])
         #print(pygame.mouse.get_pos())
-        show_text(screen, texts_game_settings[0], (screenwidth / 2, 110), color["green"], 70, "sketched.ttf")
-        show_text(screen, texts_game_settings[1], (152, 230-18), color["white"], 33, "F25_Bank_Printer.otf",False)
-        show_text(screen, texts_game_settings[2], (152, 340-18), color["white"], 33, "F25_Bank_Printer.otf",False)
-        show_text(screen, texts_game_settings[3],(152, 470-18), color["white"], 33, "F25_Bank_Printer.otf",False)
-        show_text(screen,texts_game_settings[4], (152, 590-18), color["white"], 33, "F25_Bank_Printer.otf",False)
-        show_text(screen,texts_game_settings[5], (152, 710-18), color["white"], 33, "F25_Bank_Printer.otf",False)
-        show_text(screen, texts_game_settings[6], (screenwidth / 2, 890), color["white"], 50, "sketched.ttf")
-        show_text(screen,texts_game_settings[7], (screenwidth / 2, 930), color["not too bright white"], 15, "F25_Bank_Printer.otf")
-        show_text(screen, texts_game_settings[8], (675, 230), color["not too bright white"], 25, "cleanfont.ttf")
-        show_text(screen, texts_game_settings[9], (670, 340), color["not too bright white"], 25, "cleanfont.ttf")
-        show_text(screen, texts_game_settings[10], (670, 470), color["not too bright white"], 25, "cleanfont.ttf")
-        show_text(screen, texts_game_settings[11], (615, 590), color["not too bright white"], 25, "cleanfont.ttf")
-        show_text(screen, texts_game_settings[12], (665, 710), color["not too bright white"], 25, "cleanfont.ttf")
-        show_text(screen, "Choose how many different numbers will appear in a game", (screenwidth / 2 - 100, 390), color["light grey"], 25, "cleanfont.ttf")
-        show_text(screen,"For example, if you choose 5, then only numbers 1 to 5 may appear", (screenwidth / 2 - 65, 420), color["light grey"], 25, "cleanfont.ttf")
-        show_text(screen, "Choose how many different tile positions will appear in a game", (screenwidth / 2 - 85, 512), color["light grey"], 25, "cleanfont.ttf")
-        show_text(screen,"Length of time each number and tile will appear on the screen",(screenwidth / 2 - 82, 750), color["light grey"], 25, "cleanfont.ttf")
+        show_text(screen, texts_game_settings[0], (screenwidth / 2, 110), color["green"], 70, "font/sketched.ttf")
+        show_text(screen, texts_game_settings[1], (152, 230-18), color["white"], 33, "font/F25_bank_Printer.otf",False)
+        show_text(screen, texts_game_settings[2], (152, 340-18), color["white"], 33, "font/F25_bank_Printer.otf",False)
+        show_text(screen, texts_game_settings[3],(152, 470-18), color["white"], 33, "font/F25_bank_Printer.otf",False)
+        show_text(screen,texts_game_settings[4], (152, 590-18), color["white"], 33, "font/F25_bank_Printer.otf",False)
+        show_text(screen,texts_game_settings[5], (152, 710-18), color["white"], 33, "font/F25_bank_Printer.otf",False)
+        show_text(screen, texts_game_settings[6], (screenwidth / 2, 890), color["white"], 50, "font/sketched.ttf")
+        show_text(screen,texts_game_settings[7], (screenwidth / 2, 930), color["not too bright white"], 15, "font/F25_bank_Printer.otf")
+        show_text(screen, texts_game_settings[8], (675, 230), color["not too bright white"], 25, "font/cleanfont.ttf")
+        show_text(screen, texts_game_settings[9], (670, 340), color["not too bright white"], 25, "font/cleanfont.ttf")
+        show_text(screen, texts_game_settings[10], (670, 470), color["not too bright white"], 25, "font/cleanfont.ttf")
+        show_text(screen, texts_game_settings[11], (615, 590), color["not too bright white"], 25, "font/cleanfont.ttf")
+        show_text(screen, texts_game_settings[12], (665, 710), color["not too bright white"], 25, "font/cleanfont.ttf")
+        show_text(screen, "Choose how many different numbers will appear in a game", (screenwidth / 2 - 100, 390), color["light grey"], 25, "font/cleanfont.ttf")
+        show_text(screen,"For example, if you choose 5, then only numbers 1 to 5 may appear", (screenwidth / 2 - 65, 420), color["light grey"], 25, "font/cleanfont.ttf")
+        show_text(screen, "Choose how many different tile positions will appear in a game", (screenwidth / 2 - 85, 512), color["light grey"], 25, "font/cleanfont.ttf")
+        show_text(screen,"Length of time each number and tile will appear on the screen",(screenwidth / 2 - 82, 750), color["light grey"], 25, "font/cleanfont.ttf")
         a = font_banknumbers.render(user_nback, True, color["not too bright white"])
         b = font_banknumbers.render(user_choices_numbers, True, color["not too bright white"])
         c = font_banknumbers.render(user_choices_positions, True, color["not too bright white"])
@@ -1801,7 +1800,7 @@ while run:
             screen.blit(starimg, starimg_rect)
             screen.blit(starimg, starimg_rect2)
             screen.blit(starimg, starimg_rect3)
-            show_text(screen, "God", (screenwidth / 2, 470), color["white"], 50, "F25_Bank_Printer.otf")
+            show_text(screen, "God", (screenwidth / 2, 470), color["white"], 50, "font/F25_bank_Printer.otf")
         elif level_system["n8_exp"] >= 100:
             pygame.draw.rect(screen, color["black"], (200, 355, 600, 50), border_radius = 2)
             starimg = pygame.image.load("img/star.png")
@@ -1809,65 +1808,65 @@ while run:
             starimg_rect2 = starimg.get_rect(center = (screenwidth / 2 + 25, 380))
             screen.blit(starimg, starimg_rect)
             screen.blit(starimg, starimg_rect2)
-            show_text(screen,"Grand Master", (screenwidth / 2, 470), color["white"], 50, "F25_Bank_Printer.otf")
+            show_text(screen,"Grand Master", (screenwidth / 2, 470), color["white"], 50, "font/F25_bank_Printer.otf")
         elif level_system["n7_exp"] >= 100:
             pygame.draw.rect(screen, color["black"], (200, 355, 600, 50), border_radius = 2)
             starimg = pygame.image.load("img/star.png")
             starimg_rect = starimg.get_rect(center = (screenwidth / 2, 380))
             screen.blit(starimg, starimg_rect)
-            show_text(screen, "Master", (screenwidth / 2, 470), color["white"], 50, "F25_Bank_Printer.otf")
+            show_text(screen, "Master", (screenwidth / 2, 470), color["white"], 50, "font/F25_bank_Printer.otf")
         elif (100 <= level_system["tries"] and level_system["n6_exp"] >= 30) or level_system["n6_exp"] >= 60:
             pygame.draw.rect(screen, color["black"], (200, 355, 600, 50), border_radius = 2)
-            show_text(screen, "black", (screenwidth / 2, 470), color["black"], 50, "F25_Bank_Printer.otf")
+            show_text(screen, "black", (screenwidth / 2, 470), color["black"], 50, "font/F25_bank_Printer.otf")
         elif (100 <= level_system["tries"] and level_system["n5_exp"] >= 25) or level_system["n5_exp"] >= 50:
             pygame.draw.rect(screen, color["red"], (200, 355, 600, 50), border_radius = 2)
-            show_text(screen, "red", (screenwidth / 2, 470), color["red"], 50, "F25_Bank_Printer.otf")
+            show_text(screen, "red", (screenwidth / 2, 470), color["red"], 50, "font/F25_bank_Printer.otf")
         elif (80 <= level_system["tries"] and level_system["n4_exp"] >= 20) or level_system["n4_exp"] >= 40:
             pygame.draw.rect(screen, color["brown"], (200, 355, 600, 50), border_radius = 2)
-            show_text(screen, "brown", (screenwidth / 2, 470), color["brown"], 50, "F25_Bank_Printer.otf")
+            show_text(screen, "brown", (screenwidth / 2, 470), color["brown"], 50, "font/F25_bank_Printer.otf")
         elif (50 <= level_system["tries"] and level_system["n3_exp"] >= 15) or level_system["n3_exp"] >= 30:
             pygame.draw.rect(screen, color["dark green"], (200, 355, 600, 50), border_radius = 2)
-            show_text(screen,"green", (screenwidth / 2, 470), color["dark green"], 50, "F25_Bank_Printer.otf")
+            show_text(screen,"green", (screenwidth / 2, 470), color["dark green"], 50, "font/F25_bank_Printer.otf")
         elif (50 <= level_system["tries"] and level_system["n2_exp"] >= 10) or level_system["n2_exp"] >= 20:
             pygame.draw.rect(screen, color["sky blue"], (200, 355, 600,50), border_radius = 2)
-            show_text(screen, "blue", (screenwidth / 2, 470), color["sky blue"], 50, "F25_Bank_Printer.otf")
+            show_text(screen, "blue", (screenwidth / 2, 470), color["sky blue"], 50, "font/F25_bank_Printer.otf")
         elif (50 <= level_system["tries"] and level_system["n1_exp"] >= 5) or level_system["n1_exp"] >= 10:
             pygame.draw.rect(screen, color["yellow"], (200, 355, 600, 50), border_radius = 2)
-            show_text(screen, "yellow", (screenwidth / 2, 470), color["yellow"], 50, "F25_Bank_Printer.otf")
+            show_text(screen, "yellow", (screenwidth / 2, 470), color["yellow"], 50, "font/F25_bank_Printer.otf")
         elif 0 <= level_system["tries"] <= 49:
             pygame.draw.rect(screen, color["white"], (200, 355, 600, 50), border_radius = 2)
-            show_text(screen, "white", (screenwidth / 2, 470), color["white"], 50, "F25_Bank_Printer.otf")
+            show_text(screen, "white", (screenwidth / 2, 470), color["white"], 50, "font/F25_bank_Printer.otf")
         else:
             pygame.draw.rect(screen, color["white"], (200, 355, 600, 50), border_radius = 2)
-            show_text(screen, "white", (screenwidth / 2, 470), color["white"], 50, "F25_Bank_Printer.otf")
+            show_text(screen, "white", (screenwidth / 2, 470), color["white"], 50, "font/F25_bank_Printer.otf")
         
         # # show completed games
-        show_text(screen,f"Completed games : {level_system['tries']}", (screenwidth / 2, 735), color["white"], 15, "F25_Bank_Printer.otf")
-        show_text(screen,"<Points>", (screenwidth / 2, 765), color["white"], 15, "F25_Bank_Printer.otf")
-        show_text(screen,f"1 back : {level_system['n1_exp']}   /   2 back : {level_system['n2_exp']}   /   3 back : {level_system['n3_exp']}", (screenwidth / 2, 795), color["white"], 15, "F25_Bank_Printer.otf")
-        show_text(screen,f"4 back : {level_system['n4_exp']}   /   5 back : {level_system['n5_exp']}   /   6 back : {level_system['n6_exp']}", (screenwidth / 2, 815), color["white"], 15, "F25_Bank_Printer.otf")
-        show_text(screen,f"7 back : {level_system['n7_exp']}   /   8 back : {level_system['n8_exp']}   /   9 back : {level_system['n9_exp']}", (screenwidth / 2, 835), color["white"], 15, "F25_Bank_Printer.otf")
+        show_text(screen,f"Completed games : {level_system['tries']}", (screenwidth / 2, 735), color["white"], 15, "font/F25_bank_Printer.otf")
+        show_text(screen,"<Points>", (screenwidth / 2, 765), color["white"], 15, "font/F25_bank_Printer.otf")
+        show_text(screen,f"1 back : {level_system['n1_exp']}   /   2 back : {level_system['n2_exp']}   /   3 back : {level_system['n3_exp']}", (screenwidth / 2, 795), color["white"], 15, "font/F25_bank_Printer.otf")
+        show_text(screen,f"4 back : {level_system['n4_exp']}   /   5 back : {level_system['n5_exp']}   /   6 back : {level_system['n6_exp']}", (screenwidth / 2, 815), color["white"], 15, "font/F25_bank_Printer.otf")
+        show_text(screen,f"7 back : {level_system['n7_exp']}   /   8 back : {level_system['n8_exp']}   /   9 back : {level_system['n9_exp']}", (screenwidth / 2, 835), color["white"], 15, "font/F25_bank_Printer.otf")
 
         if hovered(pygame.draw.circle(screen, color["white"], (screenwidth / 2 - (70 * 4) - 35, 560), 20)):
-            multiline_text(screen, 15, "<White belt>\n\nEveryone starts here\nA humble beginner", color["white"], (screenwidth / 2, 610), 10, "F25_Bank_Printer.otf")
+            multiline_text(screen, 15, "<White belt>\n\nEveryone starts here\nA humble beginner", color["white"], (screenwidth / 2, 610), 10, "font/F25_bank_Printer.otf")
         if hovered(pygame.draw.circle(screen, color["yellow"], (screenwidth / 2 - (70 * 3) - 35, 560), 20)):
-            multiline_text(screen, 15, "<Yellow belt>\n\nRequirements:\n\nComplete games 50 times & 1 back point : 5\nOr\n1 back point : 10", color["white"], (screenwidth / 2, 610), 1, "F25_Bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n1 Back point(s) : {level_system['n1_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+            multiline_text(screen, 15, "<Yellow belt>\n\nRequirements:\n\nComplete games 50 times & 1 back point : 5\nOr\n1 back point : 10", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
+            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n1 Back point(s) : {level_system['n1_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         if hovered(pygame.draw.circle(screen, color["sky blue"], (screenwidth / 2 - (70 * 2) - 35, 560), 20)):
-            multiline_text(screen, 15, "<Blue belt>\n\nRequirements:\n\nComplete games 50 times & 2 back point : 10\nOr\n2 back point : 20", color["white"], (screenwidth/2,610), 1, "F25_Bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n2 Back point(s) : {level_system['n2_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+            multiline_text(screen, 15, "<Blue belt>\n\nRequirements:\n\nComplete games 50 times & 2 back point : 10\nOr\n2 back point : 20", color["white"], (screenwidth/2,610), 1, "font/F25_bank_Printer.otf")
+            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n2 Back point(s) : {level_system['n2_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         if hovered(pygame.draw.circle(screen, color["green"], (screenwidth / 2 - (70 * 1) - 35, 560), 20)):
-            multiline_text(screen, 15, "<Green belt>\n\nRequirements:\n\nComplete games 50 times & 3 back point : 15\nOr\n3 back point : 30", color["white"], (screenwidth / 2, 610), 1, "F25_Bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n3 Back point(s) : {level_system['n3_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+            multiline_text(screen, 15, "<Green belt>\n\nRequirements:\n\nComplete games 50 times & 3 back point : 15\nOr\n3 back point : 30", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
+            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n3 Back point(s) : {level_system['n3_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         if hovered(pygame.draw.circle(screen, color["brown"], (screenwidth / 2 + (70 * 0) - 35, 560), 20)):
-            multiline_text(screen, 15, "<Brown belt>\n\nRequirements:\n\nComplete games 80 times & 4 back point : 20\nOr\n4 back point : 40", color["white"], (screenwidth / 2, 610), 1, "F25_Bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n4 Back point(s) : {level_system['n4_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+            multiline_text(screen, 15, "<Brown belt>\n\nRequirements:\n\nComplete games 80 times & 4 back point : 20\nOr\n4 back point : 40", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
+            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n4 Back point(s) : {level_system['n4_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         if hovered(pygame.draw.circle(screen, color["red"],(screenwidth / 2 + (70 * 0) + 35, 560), 20)):
-            multiline_text(screen, 15, "<Red belt>\n\nRequirements:\n\nComplete games 100 times & 5 back point : 25\nOr\n5 back point : 50", color["white"], (screenwidth / 2, 610), 1, "F25_Bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n5 Back point(s) : {level_system['n5_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+            multiline_text(screen, 15, "<Red belt>\n\nRequirements:\n\nComplete games 100 times & 5 back point : 25\nOr\n5 back point : 50", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
+            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n5 Back point(s) : {level_system['n5_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         if hovered(pygame.draw.circle(screen, color["black"], (screenwidth / 2 + (70 * 1) + 35, 560), 20)):
-            multiline_text(screen, 15, "<Black belt>\n\nRequirements:\n\nComplete games 100 times & 6 back point : 30\nOr\n6 back point : 60", color["white"], (screenwidth / 2, 610), 1, "F25_Bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n6 Back point(s) : {level_system['n6_exp']}",color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+            multiline_text(screen, 15, "<Black belt>\n\nRequirements:\n\nComplete games 100 times & 6 back point : 30\nOr\n6 back point : 60", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
+            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n6 Back point(s) : {level_system['n6_exp']}",color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         #print(pygame.mouse.get_pos())
         if level_system["tries"] >= 50:
             pygame.draw.circle(screen, color["black"], (screenwidth / 2 + (70 * 2) + 35, 560), 20)
@@ -1877,13 +1876,13 @@ while run:
             
             screen.blit(starimg, starimg_rect)
             if hovered(pygame.Rect(655, 540, 40, 40)):
-                multiline_text(screen, 15, "<Master>\n\nRequirements:\n\n7 back point : 100", color["white"], (screenwidth / 2, 610), 1, "F25_Bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n7 Back point(s) : {level_system['n7_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+                multiline_text(screen, 15, "<Master>\n\nRequirements:\n\n7 back point : 100", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
+                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n7 Back point(s) : {level_system['n7_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         else:
             pygame.draw.circle(screen, color["light grey"], (screenwidth / 2 + (70 * 2) + 35, 560), 20)
             if hovered(pygame.Rect(655, 540, 40, 40)):
-                multiline_text(screen, 15, "Locked\nComplete 50 games to unlock", color["white"], (screenwidth / 2, 610), 25, "F25_Bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n7 Back point(s) : {level_system['n7_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+                multiline_text(screen, 15, "Locked\nComplete 50 games to unlock", color["white"], (screenwidth / 2, 610), 25, "font/F25_bank_Printer.otf")
+                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n7 Back point(s) : {level_system['n7_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
 
         if level_system["tries"] >= 75:
             pygame.draw.circle(screen, color["black"], (screenwidth / 2 + (70 * 3) + 35, 560), 20)
@@ -1894,13 +1893,13 @@ while run:
             screen.blit(starimg, starimg_rect)
             screen.blit(starimg, starimg_rect2)
             if hovered(pygame.Rect(725, 540, 40, 40)):
-                multiline_text(screen, 15, "<Grand Master>\n\nRequirements:\n\n8 back point : 100", color["white"], (screenwidth / 2, 610), 1, "F25_Bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n8 Back point(s) : {level_system['n8_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+                multiline_text(screen, 15, "<Grand Master>\n\nRequirements:\n\n8 back point : 100", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
+                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n8 Back point(s) : {level_system['n8_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         else:
             pygame.draw.circle(screen, color["light grey"], (screenwidth / 2 + (70 * 3) + 35, 560), 20)
             if hovered(pygame.Rect(725, 540, 40, 40)):
-                multiline_text(screen, 15, "Locked\nComplete 75 games to unlock", color["white"], (screenwidth / 2, 610), 25, "F25_Bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n8 Back point(s) : {level_system['n8_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+                multiline_text(screen, 15, "Locked\nComplete 75 games to unlock", color["white"], (screenwidth / 2, 610), 25, "font/F25_bank_Printer.otf")
+                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n8 Back point(s) : {level_system['n8_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         
         if level_system["tries"] >= 100:
             pygame.draw.circle(screen, color["black"], (screenwidth / 2 + (70 * 4) + 35, 560), 20)
@@ -1914,17 +1913,17 @@ while run:
             screen.blit(starimg, starimg_rect3)
             
             if hovered(pygame.Rect(795, 540, 40, 40)):
-                multiline_text(screen, 15, "<God>\n\nRequirements:\n\n9 back point : 100", color["white"], (screenwidth / 2, 610), 1, "F25_Bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n9 Back point(s) : {level_system['n9_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+                multiline_text(screen, 15, "<God>\n\nRequirements:\n\n9 back point : 100", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
+                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n9 Back point(s) : {level_system['n9_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         else:
             pygame.draw.circle(screen, color["light grey"], (screenwidth / 2 + (70 * 4) + 35, 560), 20)
             if hovered(pygame.Rect(795, 540, 40, 40)):
-                multiline_text(screen, 15, "Locked\nComplete 100 games to unlock", color["white"], (screenwidth / 2, 610), 25, "F25_Bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n9 Back point(s) : {level_system['n9_exp']}", color["white"], (screenwidth / 2, 800), 10, "F25_Bank_Printer.otf")
+                multiline_text(screen, 15, "Locked\nComplete 100 games to unlock", color["white"], (screenwidth / 2, 610), 25, "font/F25_bank_Printer.otf")
+                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n9 Back point(s) : {level_system['n9_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         
         #pygame.draw.rect(screen, color["white"],())
-        show_text(screen, "Main menu", (screenwidth / 2, 890), color["white"], 50, "sketched.ttf")
-        show_text(screen, "(Press 'm')", (screenwidth / 2, 930), color["white"], 15, "F25_Bank_Printer.otf")
+        show_text(screen, "Main menu", (screenwidth / 2, 890), color["white"], 50, "font/sketched.ttf")
+        show_text(screen, "(Press 'm')", (screenwidth / 2, 930), color["white"], 15, "font/F25_bank_Printer.otf")
         #print(pygame.mouse.get_pos())
         if hovered(pygame.Rect(340, 850, 320, 100)):
             pygame.draw.rect(screen, color["green"], (340, 850, 320, 100), 3, 2)
@@ -1944,9 +1943,9 @@ while run:
     # how to play
     elif game == 5:
         screen.fill(color["black"])
-        show_text(screen,texts_how_to_play[0], (screenwidth / 2, 70), color["yellow"], 75, "sketched.ttf")
-        show_text(screen,"1. Description",(315,160),color["white"],30,"F25_Bank_Printer.otf")
-        show_text(screen,"2. Tutorial",(685,160),color["white"],30,"F25_Bank_Printer.otf")
+        show_text(screen,texts_how_to_play[0], (screenwidth / 2, 70), color["yellow"], 75, "font/sketched.ttf")
+        show_text(screen,"1. Description",(315,160),color["white"],30,"font/F25_bank_Printer.otf")
+        show_text(screen,"2. Tutorial",(685,160),color["white"],30,"font/F25_bank_Printer.otf")
         
         # click description
         if clicked(pygame.Rect(130, 130, 370, 60)):
@@ -1972,12 +1971,12 @@ while run:
             
         if description_flag == True:
             pygame.draw.rect(screen,color["white"],(130, 130, 370, 60),2)
-            multiline_text(screen, 30, texts_how_to_play[1], color["white"], (screenwidth / 2, 230), 1, "cleanfont.ttf")
-            show_text(screen,"7 8 4 2 3", (592,354), color["green"],30,"cleanfont.ttf")
-            show_text(screen, "Go to tutorial", (770,800),color["white"],30,"cleanfont.ttf")
+            multiline_text(screen, 30, texts_how_to_play[1], color["white"], (screenwidth / 2, 230), 1, "font/cleanfont.ttf")
+            show_text(screen,"7 8 4 2 3", (592,354), color["green"],30,"font/cleanfont.ttf")
+            show_text(screen, "Go to tutorial", (770,800),color["white"],30,"font/cleanfont.ttf")
             screen.blit(arrow_tutorial,(850,785))
             if hovered(pygame.Rect(700,775,180,40)):
-                show_text(screen, "Go to tutorial", (770,800),color["green"],30,"cleanfont.ttf")
+                show_text(screen, "Go to tutorial", (770,800),color["green"],30,"font/cleanfont.ttf")
             # click go to tutorial
             if clicked(pygame.Rect(700,775,180,40)):
                 tutorial_time_flag = False
@@ -1988,8 +1987,8 @@ while run:
                 tutorial_flag = True
                 description_flag = False
                 play_sound("sound/click1.wav")
-            show_text(screen, "Main menu", (screenwidth / 2, 890),color["white"], 50, "sketched.ttf")
-            show_text(screen, "(Press 'm')", (screenwidth / 2, 930), color["white"], 15, "F25_Bank_Printer.otf")
+            show_text(screen, "Main menu", (screenwidth / 2, 890),color["white"], 50, "font/sketched.ttf")
+            show_text(screen, "(Press 'm')", (screenwidth / 2, 930), color["white"], 15, "font/F25_bank_Printer.otf")
             if hovered(pygame.Rect(340, 850, 320, 100)):
                 pygame.draw.rect(screen, color["green"], (340, 850, 320, 100), 3, 2)
             if clicked(pygame.Rect(340, 850, 320, 100)):
@@ -2008,8 +2007,8 @@ while run:
             pygame.draw.rect(screen, color["white"], (210 - 80 - 10, 430, 80, 80), 2, 2)
             pygame.draw.rect(screen, color["white"], (210, 430, 80, 80), 2, 2)
             pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 430, 80, 80), 2, 2)
-            multiline_text(screen, 30 ,texts_tutorials[0],color["white"], texts_tutorials_coordinates[0],1, "cleanfont.ttf")
-            show_text(screen,texts_tutorials[1],texts_tutorials_coordinates[1],color["white"],30,"F25_Bank_Printer.otf")
+            multiline_text(screen, 30 ,texts_tutorials[0],color["white"], texts_tutorials_coordinates[0],1, "font/cleanfont.ttf")
+            show_text(screen,texts_tutorials[1],texts_tutorials_coordinates[1],color["white"],30,"font/F25_bank_Printer.otf")
             
             if tutorial_time_flag == False:
                 tutorial_time_flag = True
@@ -2113,15 +2112,15 @@ while run:
                     # 8
                     pygame.draw.rect(screen, color["white"], (210, 430, 80, 80), border_radius =  2)
                 if 6 < tutorial_current_time - tutorial_start_time:
-                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "2",(250, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "5",(250, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "5",(250, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                 if 7 < tutorial_current_time - tutorial_start_time:
                     texts_tutorials[0] = "\n\nEach tile is assigned a number\n\nWhat was the sequence of the tile positions?"
                     screen.blit(arrow_tutorial,(684,500))
@@ -2131,15 +2130,15 @@ while run:
                         tutorial_start_time = tutorial_current_time
             if tutorial_next_flag == 5:
                 if 0 < tutorial_current_time - tutorial_start_time:
-                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "2",(250, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "5",(250, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "5",(250, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     texts_tutorials[0] = "\n\nThe answer is\n\n6, 1, 8."
                 screen.blit(arrow_tutorial,(684,500))
                 if clicked(pygame.Rect(684,500,32,32)):
@@ -2148,15 +2147,15 @@ while run:
                     tutorial_start_time = tutorial_current_time
             if tutorial_next_flag == 6:
                 if 0 < tutorial_current_time - tutorial_start_time:
-                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "2",(250, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "5",(250, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "5",(250, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     texts_tutorials[0] = "Sequence for tile positions : 6, 1, 8\n\nLet's say we are currently playing\n1 back game,\n\nthe tile position one event ago is 1."
                 screen.blit(arrow_tutorial,(684,500))
                 if clicked(pygame.Rect(684,500,32,32)):
@@ -2165,15 +2164,15 @@ while run:
                     tutorial_start_time = tutorial_current_time
             if tutorial_next_flag == 7:
                 if 0 < tutorial_current_time - tutorial_start_time:
-                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "2",(250, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "5",(250, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "5",(250, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     texts_tutorials[0] = "Sequence for tile positions : 6, 1, 8\n\nOr let's say\nwe are playing 2 back game,\n\nthe tile position two events ago is 6."
                 screen.blit(arrow_tutorial,(684,500))
                 if clicked(pygame.Rect(684,500,32,32)):
@@ -2182,15 +2181,15 @@ while run:
                     tutorial_start_time = tutorial_current_time
             if tutorial_next_flag == 8:
                 if 0 < tutorial_current_time - tutorial_start_time:
-                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "2",(250, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "5",(250, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "3",(250+80+10, 290),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "4",(250-80-10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "5",(250, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "6",(250+80+10, 290+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     texts_tutorials[0] = "Sequence for tile positions : 6, 1, 8\n\nIf we are playing 2 back game,\nthe answer for the tile position would be 'X',\n\nbecause the tile position two events ago (6) is different\nfrom the current tile position (8)."
                     screen.blit(arrow_tutorial,(684,500))
                     if clicked(pygame.Rect(684,500,32,32)):
@@ -2216,7 +2215,7 @@ while run:
                     texts_tutorials[0] = "\n\n\n1"
                 if 3 < tutorial_current_time - tutorial_start_time < 8:
                     # number 1, position 7
-                    show_text(screen, "1",(250-80-10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen, "1",(250-80-10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     pygame.draw.rect(screen, color["white"], (210 - 80 - 10, 430, 80, 80),5, border_radius = 2)
                     
                     screen.blit(arrow_tutorial,(684,500))
@@ -2242,7 +2241,7 @@ while run:
             if tutorial_next_flag == 11:
                 if 0 < tutorial_current_time - tutorial_start_time < 5:
                     # number 1, position 9
-                    show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 430, 80, 80),5, border_radius = 2)
                 if 0 < tutorial_current_time - tutorial_start_time < 1:    
                     texts_tutorials[0] = "Time left : 5 seconds"
@@ -2256,12 +2255,12 @@ while run:
                     texts_tutorials[0] = "Time left : 1 second"
                 if 5 < tutorial_current_time - tutorial_start_time:
                     # number 1, position 9
-                    show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 430, 80, 80),5, border_radius = 2)
                     
                     texts_tutorials[0] = "Do you remember\n\nthe number and the tile position\n\none event ago?"
-                    show_text(screen,"No",(700-50,470),color["white"],30,"F25_Bank_Printer.otf")
-                    show_text(screen,"Yes",(700+50,470),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen,"No",(700-50,470),color["white"],30,"font/F25_bank_Printer.otf")
+                    show_text(screen,"Yes",(700+50,470),color["white"],30,"font/F25_bank_Printer.otf")
                     if hovered(pygame.Rect(624,447,50,40)):
                         pygame.draw.rect(screen,color["white"],(624,447,50,40),width = 2,border_radius = 2)
                     if hovered(pygame.Rect(716,447,66,40)):
@@ -2279,13 +2278,13 @@ while run:
             if tutorial_next_flag == 12:
                 
                 # number 1, position 9
-                show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                 pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 430, 80, 80),5, border_radius = 2)
 
                 texts_tutorials[0] = "If the current number is the same as\nthe number one event ago, click O under numbers.\n\nIf they are not the same, click X.\n\nSimilarly, if the current tile position is the same as\nthe tile position one event ago, click O under positions.\n\nIf they are not the same, click X."
                 
-                show_text(screen,"Numbers    Positions",(700,610),color["white"],30,"F25_Bank_Printer.otf")
-                show_text(screen,"Submit",(690,780),color["green"],25,"F25_Bank_Printer.otf")
+                show_text(screen,"Numbers    Positions",(700,610),color["white"],30,"font/F25_bank_Printer.otf")
+                show_text(screen,"Submit",(690,780),color["green"],25,"font/F25_bank_Printer.otf")
                 screen.blit(img_o_numbers,img_o_numbers_rect)
                 screen.blit(img_x_numbers,img_x_numbers_rect)
                 screen.blit(img_o_positions,img_o_positions_rect)
@@ -2346,11 +2345,11 @@ while run:
                     tutorial_start_time = tutorial_current_time
             if tutorial_next_flag == 13:
                 # number 1, position 9
-                show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"F25_Bank_Printer.otf")
+                show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                 pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 430, 80, 80),5, border_radius = 2)
 
                 # number 1, position 7
-                show_text(screen, "1",(250-80-10, 290+90+90),color["grey"],30,"F25_Bank_Printer.otf")
+                show_text(screen, "1",(250-80-10, 290+90+90),color["grey"],30,"font/F25_bank_Printer.otf")
                 pygame.draw.rect(screen, color["grey"], (210 - 80 - 10, 430, 80, 80),5, border_radius = 2)
                 #print(pygame.mouse.get_pos())
                 img_arrow = pygame.image.load("img/arrow.png")
@@ -2358,8 +2357,8 @@ while run:
                 img_biggerarrow = pygame.transform.scale(img_biggerarrow,(180,180))
                 screen.blit(img_arrow,(300,524))
                 screen.blit(img_biggerarrow,(70,524))
-                multiline_text(screen,23,"<The current Event>\nNumber : 1\nTile position : 9",color["white"],(300,620),1,"cleanfont.ttf")
-                multiline_text(screen,23,"<The previous Event>\nNumber : 1\nTile position : 7",color["not too bright white"],(170,732),1,"cleanfont.ttf")
+                multiline_text(screen,23,"<The current Event>\nNumber : 1\nTile position : 9",color["white"],(300,620),1,"font/cleanfont.ttf")
+                multiline_text(screen,23,"<The previous Event>\nNumber : 1\nTile position : 7",color["not too bright white"],(170,732),1,"font/cleanfont.ttf")
                 # if tutorial answer is correct
                 if tutorial_answer == ["O","X"]:
                     texts_tutorials[0] = "Correct answer!\nNumber : O\nPosition : X\n\n<Explanation>\nThe number one event ago is 1.\nThe current number is 1.\nThey are the same number, so the answer is O\n\nThe tile position one event ago is 7.\nThe current tile position is 9.\nThey are different tile positions, so the answer is X\n\n\nNow let's play the game!"
@@ -2368,7 +2367,7 @@ while run:
                 # if tutorial answer is incorrect
                 else:
                     texts_tutorials[0] = f"Wrong answer!\n\nYou chose...Number : {tutorial_answer[0]}, Position : {tutorial_answer[1]}\n\n<Explanation>\nThe number one event ago is 1.\nThe current number is 1.\nThey are the same number, so the answer is O\n\nThe tile position one event ago is 7.\nThe current tile position is 9.\nThey are different tile positions, so the answer is X"
-                    show_text(screen,"Try again",(700,700),color["white"],30,"F25_Bank_Printer.otf")
+                    show_text(screen,"Try again",(700,700),color["white"],30,"font/F25_bank_Printer.otf")
                     # hover over try again
                     if hovered(pygame.Rect(600,670,200,60)):
                         pygame.draw.rect(screen,color["white"],(600,670,200,60),3,2)
@@ -2380,8 +2379,8 @@ while run:
                         tutorial_start_time = tutorial_current_time
             
             # Main menu button
-            show_text(screen, "Main menu", (screenwidth / 2, 890),color["white"], 50, "sketched.ttf")
-            show_text(screen, "(Press 'm')", (screenwidth / 2, 930), color["white"], 15, "F25_Bank_Printer.otf")
+            show_text(screen, "Main menu", (screenwidth / 2, 890),color["white"], 50, "font/sketched.ttf")
+            show_text(screen, "(Press 'm')", (screenwidth / 2, 930), color["white"], 15, "font/F25_bank_Printer.otf")
             if hovered(pygame.Rect(340, 850, 320, 100)):
                 pygame.draw.rect(screen, color["green"], (340, 850, 320, 100), 3, 2)
             

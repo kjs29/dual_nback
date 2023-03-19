@@ -20,14 +20,14 @@ class Buttons:
 
         
         
-        self.font = pygame.font.Font("cleanfont.ttf", 50)
+        self.font = pygame.font.Font("font/cleanfont.ttf", 50)
         self.content = self.font.render("",True, (255,255,255))
         self.content_rect = self.content.get_rect(center = (self.surface_width/2, self.surface_height/2))
         
         self.hovered_flag = False
         self.clicked_flag = False
 
-    def draw_text(self, text, fontname = "cleanfont.ttf", fontsize = 50, fontcolor = color["white"]):
+    def draw_text(self, text, fontname = "font/cleanfont.ttf", fontsize = 50, fontcolor = color["white"]):
         self.font = pygame.font.Font(fontname,fontsize)
         self.content = self.font.render(text, True, fontcolor)
     
@@ -38,7 +38,7 @@ class Buttons:
         self.surface.blit(self.content, self.content_rect)
         screen.blit(self.surface, self.surface_rect)
 
-    # def draw_rect(self, screen, text = "test", draw_text_in_rectangle = False, fontname = "cleanfont.ttf", fontsize = 30, textcolor = color["white"]):
+    # def draw_rect(self, screen, text = "test", draw_text_in_rectangle = False, fontname = "font/cleanfont.ttf", fontsize = 30, textcolor = color["white"]):
     #     if draw_text_in_rectangle == True:
     #         font = pygame.font.Font(fontname, fontsize)
     #         self.content = font.render(text, True, textcolor)
