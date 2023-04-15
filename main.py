@@ -1,6 +1,10 @@
-import sys, datetime, time, secrets, json, pygame
+import sys
+import datetime
+import time
+import secrets
+import json
+import pygame
 import os
-from stat import S_IREAD, S_IRGRP, S_IROTH, S_IRWXU
 from buttons import Buttons
 
 # initialize pygame module
@@ -22,7 +26,7 @@ fps = 60
 # color
 color = {"black" : (0, 0, 0), "white" : (255, 255, 255), "green" : (0, 255, 0),
          "grey" : (175, 173, 169), "red" : (255, 0, 0), "light green" : (144, 238, 144),
-         "sky blue" : (50, 130, 230), "light red" : (255, 127, 127), "light green" : (144, 238, 144),
+         "sky blue" : (50, 130, 230), "light red" : (255, 127, 127), 
          "blue" : (0, 0, 255), "purple" : (201, 71, 245), "dark grey" : (120, 120, 120),
          "yellow" : (255, 255, 0), "dark green" : (9, 148, 65), "dark dark grey" : (35, 35, 35),
          "pastel green" : (193, 225, 193), "orange" : (255, 165, 0), "light grey" : (188, 188, 188),
@@ -72,6 +76,7 @@ def show_text(screen, text, coor, color, size, fontname, centered_position = Tru
 
 clickedflag = False
 def clicked(rect):
+    
     global clickedflag
     if rect.collidepoint(pygame.mouse.get_pos()):
         if clickedflag == False and pygame.mouse.get_pressed()[0]:
@@ -129,14 +134,12 @@ def reposition_imgs():
             imgs1_rect[f"img{n}_rect"] = imgs1[f"img{n}"].get_rect(center = (670 + 150, 670 + 150))
             
 def regenerate_sequence():
-    global questions_location, questions_numbers, questions_numbers_rendered_content_lst, questions_number_rect_lst, answer_location, answer_numbers, user_answer_location, user_answer_numbers, choices_numbers, choices_positions, level_flag
+    global  questions_location, questions_numbers, questions_numbers_rendered_content_lst, questions_number_rect_lst, answer_location, answer_numbers, user_answer_location, user_answer_numbers, choices_numbers, choices_positions, level_flag
     randomNumbers = secrets.SystemRandom()
     questions_location = []
     questions_numbers = []
     questions_numbers_rendered_content_lst = []
     questions_number_rect_lst = []
-    # choices_numbers = 9
-    # choices_positions = 9
 
     for i in range(the_number_of_questions):
         questions_numbers.append(randomNumbers.randint(1, choices_numbers))
@@ -145,9 +148,6 @@ def regenerate_sequence():
         each_rect_1 = each_content_1.get_rect(center = (-200, -200))
         questions_numbers_rendered_content_lst.append(each_content_1)
         questions_number_rect_lst.append(each_rect_1)
-
-    #print(f"questions_location:{questions_location}")
-    #print(f"questions_numbers:{questions_numbers}")
 
     answer_location = []
     answer_numbers = []
@@ -163,14 +163,8 @@ def regenerate_sequence():
             else:
                 answer_numbers.append("X")
 
-    #print(f"answer_location : {answer_location}")
-    #print(f"answer_numbers : {answer_numbers}")
-
     user_answer_location = [" " for _ in range(len(answer_location))]
     user_answer_numbers = [" " for _ in range(len(answer_numbers))]
-
-    #print(f"user answer for location : {user_answer_location}")
-    #print(f"user answer for numbers : {user_answer_numbers}")
 
     level_flag = False
 
@@ -306,66 +300,34 @@ the_number_of_questions = 10
 the_duration_between_each_number = 5
 counter = 0
 
-# questions_location = []
-# questions_numbers = []
-# questions_numbers_rendered_content_lst = []
-# questions_number_rect_lst = []
-
-# for i in range(the_number_of_questions):
-#     questions_location.append(secrets.randbelow(9)+1)
-#     questions_numbers.append(secrets.randbelow(9)+1)
-#     each_content_1 = font150_number.render(str(questions_numbers[i]), True, color["green"])
-#     each_rect_1 = each_content_1.get_rect(center = (-200, -200))
-#     questions_numbers_rendered_content_lst.append(each_content_1)
-#     questions_number_rect_lst.append(each_rect_1)
-
-# print(f"questions_location:{questions_location}")
-# print(f"questions_numbers:{questions_numbers}")
-
-# answer_location = []
-# answer_numbers = []
-
-# for i in range(the_number_of_questions):
-#     if i >= current_nback:
-#         if questions_location[i] == questions_location[i-current_nback]:
-#             answer_location.append("O")
-#         else:
-#             answer_location.append("X")
-#         if questions_numbers[i] == questions_numbers[i-current_nback]:
-#             answer_numbers.append("O")
-#         else:
-#             answer_numbers.append("X")
-
-# print(f"answer_location : {answer_location}")
-# print(f"answer_numbers : {answer_numbers}")
-
-# user_answer_location = [" " for _ in range(len(answer_location))]
-# user_answer_numbers = [" " for _ in range(len(answer_numbers))]
-
-#print(f"user answer for location : {user_answer_location}")
-#print(f"user answer for numbers : {user_answer_numbers}")
-
 # Game screen
 button_position = pygame.image.load("img/tile.png")
-button_position_rect = button_position.get_rect(center = (825, 1055))
+#$%^
+button_position_rect = button_position.get_rect(center = (1145  , 745))
 button_numbers = pygame.image.load("img/verification.png")
-button_numbers_rect = button_numbers.get_rect(center = (180, 1045))
+#$%^
+button_numbers_rect = button_numbers.get_rect(center = (1140, 100))
 text_current_nback = font37.render(f"{current_nback} back", True, color["white"])
-text_current_nback_rect = text_current_nback.get_rect(center = (screenwidth / 2, 1000))
+#$%^
+text_current_nback_rect = text_current_nback.get_rect(center = (1200 , 400))
 text_progress = font37.render(str(counter + 1)+" / " + str(the_number_of_questions), True, color["white"])
-text_progress_rect = text_progress.get_rect(center = (screenwidth / 2, 1000))
+#$%^
+text_progress_rect = text_progress.get_rect(center = (1200, 400))
 text_position = font18.render("Position", True, color["white"])
-text_position_rect = text_position.get_rect(center = (820, 1000))
 text_numbers = font18.render("Number", True, color["white"])
-text_numbers_rect = text_numbers.get_rect(center = (180, 1000))
+#$%^
+text_numbers_rect = text_numbers.get_rect(center = (1140, 150))
+#$%^
+text_position_rect = text_position.get_rect(center = (1140, 800))
+
+
 
 
 text_pause = font18.render("Pause", True, color["white"])
-text_pause_rect = text_pause.get_rect(center = (screenwidth / 2 - 80, 1110))
+text_pause_rect = text_pause.get_rect(center = (screenwidth+140-65, 610))
 text_stop = font18.render("Stop", True, color["white"])
-text_stop_rect = text_stop.get_rect(center = (screenwidth / 2 + 80, 1110))
+text_stop_rect = text_stop.get_rect(center = (screenwidth+140+60, 610))
 stop_flag = False
-
 
 button_position_O = pygame.image.load("img/o.png")
 button_position_O_rect = button_position_O.get_rect(center = (-200, -200))
@@ -395,10 +357,21 @@ sound_countdown_1 = False
 sound_start_flag = False
 
 game_pause_flag = False
-texts_pause_screen = ["Paused","Resume","Main menu","Press P to resume","Press M to return to the Main menu"]
+texts_pause_screen = [
+                        "Paused",
+                        "Resume",
+                        "Main menu",
+                        "Press P to resume",
+                        "Press M to return to the Main menu"
+                     ]
 
 # How to play screen
-texts_how_to_play = ["How to play","N back is a game\nwhere you remember the number n-th event ago.\n\nFor example,\nif the sequence is   ,  ,  ,  ,  \nthe current event number is 3,\nbecause it's the most recent number.\n1 back number would be 2,\n2 back number would be 4,\n3 back number would be 8, and so on.\nLet's say that you are playing 1 back,\nevery time a new number occurs, you check if\nthe current event number is the same number as\n1 back event number.\nIf the numbers are the same click O, if they're not click X.\n\nSimilarly, the sequence will also include the positions of tiles.\nWe will walk you through how to play the game in the tutorial.","Main menu","(press 'm')"]
+texts_how_to_play = [
+                        "How to play",
+                        "N back is a game\nwhere you remember the number n-th event ago.\n\nFor example,\nif the sequence is   ,  ,  ,  ,  \nthe current event number is 3,\nbecause it's the most recent number.\n1 back number would be 2,\n2 back number would be 4,\n3 back number would be 8, and so on.\nLet's say that you are playing 1 back,\nevery time a new number occurs, you check if\nthe current event number is the same number as\n1 back event number.\nIf the numbers are the same click O, if they're not click X.\n\nSimilarly, the sequence will also include the positions of tiles.\nWe will walk you through how to play the game in the tutorial.",
+                        "Main menu",
+                        "(press 'm')"
+                    ]
 description_flag = True
 tutorial_flag = False
 arrow_tutorial = pygame.image.load("img/gototutorial.png")
@@ -426,7 +399,17 @@ correct_number_of_questions_numbers = 0
 score_for_numbers = 0
 score_for_numbers = 0
 practice_the_same_sequence_flag = False
-texts_score = ["Result",0,0,"Numbers","Positions","Save result as text","Practice the same sequence","New game","Main menu"]
+texts_score = [
+                "Result",
+                0,
+                0,
+                "Numbers",
+                "Positions",
+                "Save result as text",
+                "Practice the same sequence",
+                "New game",
+                "Main menu"
+              ]
 button_play_with_the_same_sequence = Buttons(screenwidth / 2, 700, 480, 64, alpha = 255)
 button_save_result = Buttons(screenwidth / 2, 770, 480, 64, alpha = 255)
 button_new_game = Buttons(screenwidth / 2, 840, 480, 64, alpha = 255)
@@ -434,7 +417,14 @@ button_main_menu = Buttons(screenwidth / 2, 910, 480, 64, alpha = 255)
 text_score_helper = f"Increase the number of events to {current_nback * 3}\nto earn a '{current_nback} back' point!"
 
 # Game settings screen
-texts_game_settings = ["Game settings","# N", "Choices <numbers>", "Choices <positions>", "# of events", "Time intervals(s)", "Main menu", "(Press 'm')","(1 ~ 9, default : 1)","(2 ~ 9, default : 9)", "(2 ~ 9, default : 9)", "(Current N + 1 ~ 99, default : 10)","(2 ~ 99, default : 5)"]
+texts_game_settings = [
+                        "Game settings","# N", "Choices <numbers>",
+                        "Choices <positions>", "# of events",
+                        "Time intervals(s)", "Main menu", "(Press 'm')",
+                        "(1 ~ 9, default : 1)","(2 ~ 9, default : 9)",
+                        "(2 ~ 9, default : 9)", "(Current N + 1 ~ 99, default : 10)",
+                        "(2 ~ 99, default : 5)"
+                      ]
 user_nback = str(current_nback)
 user_choices_numbers = str(choices_numbers)
 user_choices_positions = str(choices_positions)
@@ -474,7 +464,8 @@ n7_exp = 0
 n8_exp = 0
 n9_exp = 0
 
-level_system = {"tries" : 0,
+level_system = {
+                "tries" : 0,
                 "n1_exp" : n1_exp,
                 "n2_exp" : n2_exp,
                 "n3_exp" : n3_exp,
@@ -484,18 +475,12 @@ level_system = {"tries" : 0,
                 "n7_exp" : n7_exp,
                 "n8_exp" : n8_exp,
                 "n9_exp" : n9_exp,
-                }
+              }
 
 # if level file exists, open, and save it as level_system.
 if os.path.isfile("level.txt"):
     with open("level.txt") as levelfile:
         level_system = json.load(levelfile)
-# try:
-#     with open("level.txt") as levelfile:
-#         level_system = json.load(levelfile)
-#     #os.system("attrib +h level.txt")
-# except:
-#     pass
 
 # Score board
 texts_scoreboard = ["Your Rank\nis"]
@@ -507,7 +492,6 @@ while run:
     if game == 0:
         screen.fill(color["black"])
         mouse_point = pygame.mouse.get_pos()
-        #print(mouse_point)
         current_count = time.time()
         if main_menu_flag == False:
             if current_count - start_count > 0.5:
@@ -543,12 +527,6 @@ while run:
                 show_text(screen, "Press enter to skip", (screenwidth / 2, screenheight / 2),color["white"], 25, "font/cleanfont.ttf")
                 if clicked(button5.surface_rect):
                     main_menu_flag = True
-            
-            # if current_count - start_count < 3.2:
-            #     for n in range(3):
-            #         pygame.draw.rect(screen, color["black"], first[n], width = 3, border_radius = 5)
-            #         pygame.draw.rect(screen, color["black"], second[n], width = 3, border_radius = 5)
-            #         pygame.draw.rect(screen, color["black"], third[n], width = 3, border_radius = 5)
 
         if current_count - start_count >= 3.2 or main_menu_flag == True:
             for i in range(len(tile_location)):
@@ -556,31 +534,8 @@ while run:
                     pygame.draw.rect(screen, color["green"], tile_location[i], width = 10, border_radius = 10)
                 else:
                     pygame.draw.rect(screen, color["white"], tile_location[i], width = 3, border_radius = 5)
-
-            # for index,a in enumerate(buttonlist):
-            #     a.hovered(mouse_shape = True)
-
-            # for n in range(9):
-            #     if buttonlist[n].clicked():
-            #         if n == 0:
-            #             print("How to play clicked")
-            #         elif n == 2:
-            #             print("Scoreboard clicked")
-            #         elif n == 4:
-            #             game = 1
-            #             screenheight = 1200
-            #             screen = pygame.display.set_mode((screenwidth, screenheight))
-            #             pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
-            #             #print(f"current_nback : {current_nback}")
-            #             regenerate_sequence()
-            #         elif n == 6:
-            #             #print("Game settings clicked")
-            #             game = 3
-            #         elif n == 8:
-            #             run = False
             
             if clicked(button1.surface_rect):
-                #print("how to play clicked")
                 play_sound("sound/click1.wav")
                 game = 5
 
@@ -590,7 +545,7 @@ while run:
 
             if clicked(button5.surface_rect):
                 game = 1
-                screenheight = 1200
+                screenwidth = 1300
                 screen = pygame.display.set_mode((screenwidth, screenheight))
                 pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
                 play_sound("sound/playbutton.wav")
@@ -626,13 +581,11 @@ while run:
     # game screen
     elif game == 1:
         screen.fill(color["black"])
-        #print(pygame.mouse.get_pos())
-        # for i in range(len(tile_location)):
-        #     pygame.draw.rect(screen, color["white"], tile_location[i], width = 3, border_radius = 5)
-        
+
+        # Count down 3 2 1
         if questions_start == False:
-            current_count = time.time()   
-            #print(f"current_count - start_count : {current_count - start_count}")
+            current_count = time.time()
+            
             if start_count_game_screen == False:
                 start_count_game_screen = True
                 start_count = time.time()
@@ -667,28 +620,29 @@ while run:
                 start_count = 0
                 questions_start = True
         
+        # After count down : Game begins
         else:
 
+            # Paused
             if game_pause_flag == True:
                 screen.fill(color["black"])
-                #new_current_count =start_count
+                
                 show_text(screen, texts_pause_screen[0], (screenwidth / 2, 400), color["white"], 70, "font/sketched.ttf")
                 show_text(screen,texts_pause_screen[1], (screenwidth / 2, 550), color["white"], 50, "font/sketched.ttf")
                 show_text(screen, texts_pause_screen[2], (screenwidth / 2, 700), color["white"], 50, "font/sketched.ttf")
-                if hovered(pygame.Rect(375, 500, 250, 100)):
-                    pygame.draw.rect(screen, color["white"], (375, 500, 250, 100), width = 3, border_radius = 2)
+                if hovered(pygame.Rect(375+150, 500, 250, 100)):
+                    pygame.draw.rect(screen, color["white"], (375+150, 500, 250, 100), width = 3, border_radius = 2)
                     show_text(screen, texts_pause_screen[3], (screenwidth / 2, 620), color["white"], 30,"font/cleanfont.ttf")
-                if clicked(pygame.Rect(375, 500, 250, 100)):
+                if clicked(pygame.Rect(375+150, 500, 250, 100)):
                     game_pause_flag = False
-                if hovered(pygame.Rect(330, 655, 340, 100)):
-                    pygame.draw.rect(screen, color["white"], (330, 655, 340, 100), width = 3, border_radius = 2)
+                if hovered(pygame.Rect(330+150, 655, 340, 100)):
+                    pygame.draw.rect(screen, color["white"], (330+150, 655, 340, 100), width = 3, border_radius = 2)
                     show_text(screen, texts_pause_screen[4], (screenwidth / 2, 775), color["white"], 30, "font/cleanfont.ttf")
-                if clicked(pygame.Rect(330, 655, 340, 100)):
-                    screenheight = 1000
+                if clicked(pygame.Rect(330+150, 655, 340, 100)):
+                    screenwidth = 1000
                     screen = pygame.display.set_mode((screenwidth, screenheight))
                     questions_start = False
                     start_count_game_screen = False
-                    #new_start_count = new_current_count
                     one_tenth_seconds = 0
                     game_pause_flag = False
                     counter = 0
@@ -712,6 +666,7 @@ while run:
                     main_menu_flag = True
                     game = 0
 
+            # Not paused
             elif game_pause_flag == False:
 
                 # Reflect json file on level_system
@@ -722,76 +677,82 @@ while run:
                 # level appearing
                 # god
                 if level_system["n9_exp"] >= 100:
-                    pygame.draw.rect(screen, color["dark dark grey"], (360, 1035, 280, 35), border_radius= 2)
+                    pygame.draw.rect(screen, color["dark dark grey"], (1020, 525, 220, 35), border_radius= 2)
                     starimg = pygame.image.load("img/star.png")
                     starimg = pygame.transform.scale(starimg,(20, 20))
-                    starimg_rect = starimg.get_rect(center = (screenwidth / 2 - 45, 1050))
-                    starimg_rect2 = starimg.get_rect(center = (screenwidth / 2, 1050))
-                    starimg_rect3 = starimg.get_rect(center = (screenwidth / 2 + 45, 1050))
+                    starimg_rect = starimg.get_rect(center = (1020+110, 540))
+                    starimg_rect2 = starimg.get_rect(center = (1020+110-70, 540))
+                    starimg_rect3 = starimg.get_rect(center = (1020+110+70, 540))
                     screen.blit(starimg, starimg_rect)
                     screen.blit(starimg, starimg_rect2)
                     screen.blit(starimg, starimg_rect3)
                 # grand master
                 elif level_system["n8_exp"] >= 100:
-                    pygame.draw.rect(screen, color["dark dark grey"], (360, 1035, 280, 35), border_radius= 2)
+                    pygame.draw.rect(screen, color["dark dark grey"], (1020, 525, 220, 35), border_radius= 2)
                     starimg = pygame.image.load("img/star.png")
                     starimg = pygame.transform.scale(starimg, (20, 20))
-                    starimg_rect = starimg.get_rect(center = (screenwidth / 2 - 25, 1050))
-                    starimg_rect2 = starimg.get_rect(center = (screenwidth / 2 + 25, 1050))
+                    starimg_rect = starimg.get_rect(center = (1020+110-30, 540))
+                    starimg_rect2 = starimg.get_rect(center = (1020+110+30, 540))
                     screen.blit(starimg, starimg_rect)
                     screen.blit(starimg, starimg_rect2)
                 # master
                 elif level_system["n7_exp"] >= 100:
-                    pygame.draw.rect(screen, color["dark dark grey"], (360, 1035, 280, 35), border_radius= 2)
+                    pygame.draw.rect(screen, color["dark dark grey"], (1020, 525, 220, 35), border_radius= 2)
                     starimg = pygame.image.load("img/star.png")
                     starimg = pygame.transform.scale(starimg, (20, 20))
-                    starimg_rect = starimg.get_rect(center = (screenwidth / 2, 1050))
+                    starimg_rect = starimg.get_rect(center = (1020+110, 540))
                     screen.blit(starimg, starimg_rect)
                 # black
                 elif (100 <= level_system["tries"] and level_system["n6_exp"] >= 30) or level_system["n6_exp"] >= 60:
-                    pygame.draw.rect(screen, color["dark dark grey"], (540, 1035, 35, 35), border_radius = 2)
+                    pygame.draw.rect(screen, color["dark dark grey"], (1200, 520, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
+                    show_text(screen, "Rank :", (1050, 540), color["white"], 20, "font/F25_bank_Printer.otf")
                 # red
                 elif (100 <= level_system["tries"] and level_system["n5_exp"] >= 25) or level_system["n5_exp"] >= 50:
-                    pygame.draw.rect(screen, color["red"], (540, 1035, 35, 35), border_radius = 2)
+                    pygame.draw.rect(screen, color["red"], (1200, 520, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
+                    show_text(screen, "Rank :", (1050, 540), color["white"], 20, "font/F25_bank_Printer.otf")
                 # brown
                 elif (80 <= level_system["tries"] and level_system["n4_exp"] >= 20) or level_system["n4_exp"] >= 40:
-                    pygame.draw.rect(screen, color["brown"], (540, 1035, 35, 35), border_radius = 2)
+                    pygame.draw.rect(screen, color["brown"], (1200, 520, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
+                    show_text(screen, "Rank :", (1050, 540), color["white"], 20, "font/F25_bank_Printer.otf")
                 # green
                 elif (50 <= level_system["tries"] and level_system["n3_exp"] >= 15) or level_system["n3_exp"] >= 30:
-                    pygame.draw.rect(screen, color["green"], (540, 1035, 35, 35), border_radius = 2)
+                    pygame.draw.rect(screen, color["green"], (1200, 520, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
+                    show_text(screen, "Rank :", (1050, 540), color["white"], 20, "font/F25_bank_Printer.otf")
                 # blue
                 elif (50 <= level_system["tries"] and level_system["n2_exp"] >= 10) or level_system["n2_exp"] >= 20:
-                    pygame.draw.rect(screen, color["sky blue"], (540, 1035, 35, 35), border_radius = 2)
+                    pygame.draw.rect(screen, color["sky blue"], (1200, 520, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
+                    show_text(screen, "Rank :", (1050, 540), color["white"], 20, "font/F25_bank_Printer.otf")
                 # yellow
                 elif (50 <= level_system["tries"] and level_system["n1_exp"] >= 5) or level_system["n1_exp"] >= 10:
-                    pygame.draw.rect(screen, color["yellow"], (540, 1035, 35, 35), border_radius = 2)
+                    pygame.draw.rect(screen, color["yellow"], (1200, 520, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
+                    show_text(screen, "Rank :", (1050, 540), color["white"], 20, "font/F25_bank_Printer.otf")
                 # white
                 elif 0 <= level_system["tries"] <= 49:
-                    pygame.draw.rect(screen, color["white"], (540, 1035, 35, 35), border_radius = 2)
+                    #$%^
+                    pygame.draw.rect(screen, color["white"], (1200, 520, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
+                    #$%^
+                    show_text(screen, "Rank :", (1050, 540), color["white"], 20, "font/F25_bank_Printer.otf")
                 else:
-                    pygame.draw.rect(screen, color["white"], (540, 1035, 35, 35), border_radius = 2)
+                    #$%^
+                    pygame.draw.rect(screen, color["white"], (1200, 520, 35, 35), border_radius = 2)
                     # Level text appearing
-                    show_text(screen, "Rank :", (screenwidth / 2 - 40, 1055), color["white"], 20, "font/F25_bank_Printer.otf")
+                    #$%^
+                    show_text(screen, "Rank :", (1050, 540), color["white"], 20, "font/F25_bank_Printer.otf")
 
                 # N back text appearing
-                show_text(screen, f"N : {current_nback} back",(screenwidth / 2 - 100, 1000), color["white"], 20, "font/fragmentcore.otf")
+                #$%^
+                show_text(screen, f"{current_nback} back",(1050, 400), color["white"], 20, "font/F25_bank_Printer.otf")
                 
                 # Time left appearing
-                show_text(screen,"Time left :", (screenwidth / 2 + 100, 1000), color["white"], 20, "font/fragmentcore.otf")
+                #$%^
+                show_text(screen,"Time left :", (1085, 465), color["white"], 20, "font/F25_bank_Printer.otf")
 
                 # Progress text appearing
                 text_progress = font37.render(f"{counter+1} / {the_number_of_questions}", True, color["white"])
@@ -802,8 +763,10 @@ while run:
                 screen.blit(text_position, text_position_rect)
                 screen.blit(text_numbers, text_numbers_rect)
                 screen.blit(text_pause, text_pause_rect)
-                show_text(screen, "(P)", (420, 1138), color["not too bright white"], 30, "font/cleanfont.ttf")
-                show_text(screen, "(S)", (580, 1138), color["not too bright white"], 30, "font/cleanfont.ttf")
+                #$%^
+                # show_text(screen, "(P)ause", (1050, 600), color["not too bright white"], 30, "font/cleanfont.ttf")
+                # #$%^
+                # show_text(screen, "(S)top", (1230, 600), color["not too bright white"], 30, "font/cleanfont.ttf")
                 screen.blit(text_stop, text_stop_rect)
                 screen.blit(button_position_O, button_position_O_rect)
                 screen.blit(button_position_X, button_position_X_rect)
@@ -813,28 +776,59 @@ while run:
                 screen.blit(button_key2, button_key2_rect)
                 screen.blit(button_key3, button_key3_rect)
                 screen.blit(button_key4, button_key4_rect)
+                
+                # Tiles appearing
                 for i in range(len(tile_location)):
                     pygame.draw.rect(screen, color["white"], tile_location[i], width = 3, border_radius = 5)
 
                 # pause button clicked
-                if clicked(pygame.Rect(375, 1090, 90, 75)):
+                if clicked(pygame.Rect(1020, 585, 110, 50)):
                     sound_countdown_flag = False
                     sound_start_flag = False
                     game_pause_flag = True
 
-                # stop button clicked
-                if clicked(pygame.Rect(535, 1090, 90, 75)):
-                    screenheight = 1000
+                # stop button clicked -> main menu
+                if clicked(pygame.Rect(1155, 585, 85, 50)):
+                    screenwidth = 1000
                     screen = pygame.display.set_mode((screenwidth, screenheight))
                     questions_number_rect_lst[counter].center = -200, -200
                     sound_countdown_flag = False
                     sound_start_flag = False
-                    game = 2
 
-                if hovered(pygame.Rect(375, 1090, 90, 75)):
-                    pygame.draw.rect(screen, color["not too bright white"], (375, 1090, 90, 75), 3, 2)
-                if hovered(pygame.Rect(535, 1090, 90, 75)):
-                    pygame.draw.rect(screen, color["not too bright white"], (535, 1090, 90, 75), 3, 2)
+                    questions_start = False
+                    start_count_game_screen = False
+                    one_tenth_seconds = 0
+                    game_pause_flag = False
+                    counter = 0
+                    questions_start = False
+                    score_flag = False
+                    button_save_result_flag = False
+                    start_count_game_screen = False
+                    correct_number_of_questions_location = 0
+                    correct_number_of_questions_numbers = 0
+                    pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
+                    reposition_imgs()
+                    lst_texts_in_game[0] = "Start!"
+                    button_position_O_rect.center = -200, -200
+                    button_position_X_rect.center = -200, -200
+                    button_numbers_O_rect.center = -200, -200
+                    button_numbers_X_rect.center = -200, -200
+                    button_key1_rect.center = -200, -200
+                    button_key2_rect.center = -200, -200
+                    button_key3_rect.center = -200, -200
+                    button_key4_rect.center = -200, -200
+                    main_menu_flag = True
+                    game = 0
+
+
+
+                # mouse hover over effect on pause
+                if hovered(pygame.Rect(1020, 585, 110, 50)):
+                    pygame.draw.rect(screen, color["not too bright white"], (1020, 585, 110, 50), 3, 2)
+                
+                # mouse hover over effect on stop
+                if hovered(pygame.Rect(1155, 585, 85, 50)):
+                    pygame.draw.rect(screen, color["not too bright white"], (1155, 585, 85, 50), 3, 2)
                 
                 new_current_count = pygame.time.get_ticks()
                 # every 0.1 second                
@@ -858,7 +852,7 @@ while run:
                                     level_system = json.load(file)
                             except:
                                 pass
-                            #print(level_system["tries"])
+                            
                             if os.path.isfile("level.txt"):
                                 # god
                                 if level_system["n9_exp"] >= 100:
@@ -900,13 +894,13 @@ while run:
                 if the_duration_between_each_number - 0.2 < rem < the_duration_between_each_number:
                     questions_number_rect_lst[counter].center = -200, -200
                 
-                # countdown appearing
+                # Countdown appearing
                 if the_duration_between_each_number - 3 <= rem < the_duration_between_each_number - 2:
-                    show_text(screen,"3", (screenwidth / 2 + 150, 1000), color["white"], 20, "font/fragmentcore.otf")
+                    show_text(screen,"3", (1205, 465), color["white"], 30, "font/fragmentcore.otf")
                 if the_duration_between_each_number - 2 <= rem < the_duration_between_each_number - 1:
-                    show_text(screen,"2", (screenwidth / 2 + 150, 1000), color["white"], 20, "font/fragmentcore.otf")
+                    show_text(screen,"2", (1205, 465), color["white"], 30, "font/fragmentcore.otf")
                 if the_duration_between_each_number - 1 <= rem < the_duration_between_each_number - 0:
-                    show_text(screen,"1", (screenwidth / 2 + 150, 1000), color["white"], 20, "font/fragmentcore.otf")
+                    show_text(screen,"1", (1205, 465), color["white"], 30, "font/fragmentcore.otf")
                 
                 # number appearing sound
                 if rem == 0.1 and sound_number_appear_flag == False:
@@ -938,24 +932,25 @@ while run:
                         play_sound("sound/clock_tick.wav")
                     if rem == the_duration_between_each_number - 0.5:
                         sound_countdown_1 = False
-                        
-
 
                 # O,X buttons for positions and numbers
                 if counter < the_number_of_questions:
-                    #questions_number_rect_lst[counter].center = number_location[questions_location[counter]-1]
                     if counter >= current_nback:
-                        button_position_O_rect.center = 110, 1135
-                        button_position_X_rect.center = 250, 1135
-                        button_numbers_O_rect.center = 750, 1135
-                        button_numbers_X_rect.center = 890, 1135
-                        button_key1_rect.center = 110, 1100
-                        button_key2_rect.center = 250, 1100
-                        button_key3_rect.center = 750, 1100
-                        button_key4_rect.center = 890, 1100
+                        
+                        #$%^
+                        button_position_O_rect.center = 1055, 250
+                        button_position_X_rect.center = 1215, 250
+                        button_numbers_O_rect.center = 1055, 900
+                        button_numbers_X_rect.center = 1215, 900
+                        
+                        button_key1_rect.center = 1055, 220
+                        button_key2_rect.center = 1215, 220
+
+                        button_key3_rect.center = 1055, 870
+                        button_key4_rect.center = 1215, 870
 
                         # numbers O button
-                        if clicked(pygame.Rect(78, 1085, 64, 64)):
+                        if clicked(pygame.Rect(1010, 200, 100, 100)):
                             if user_answer_numbers[counter - current_nback] == " ":
                                 user_answer_numbers[counter - current_nback] = "O"
                             elif user_answer_numbers[counter - current_nback] == "O":
@@ -963,53 +958,54 @@ while run:
                             elif user_answer_numbers[counter - current_nback] == "X":
                                 user_answer_numbers[counter - current_nback] = "O"
                             play_sound("sound/mouseclicko.wav",volume = 0.5)
-                            #print(f"location : {user_answer_numbers}")
 
                         # numbers X button
-                        if clicked(pygame.Rect(250 - 32, 1085, 64, 64)):
+                        if clicked(pygame.Rect(1175, 200, 100, 100)):
                             if user_answer_numbers[counter - current_nback] == " ":
                                 user_answer_numbers[counter - current_nback] = "X"
                             elif user_answer_numbers[counter - current_nback] == "X":
                                 user_answer_numbers[counter - current_nback] = " "
                             elif user_answer_numbers[counter - current_nback] == "O":
                                 user_answer_numbers[counter - current_nback] = "X"
-                            #print(f"location : {user_answer_numbers}")
                             play_sound("sound/mouseclickx.wav",volume = 0.5)
 
                         # positions O button
-                        if clicked(pygame.Rect(750 - 32, 1085, 64, 64)):
+                        if clicked(pygame.Rect(1010, 850, 100, 100)):
                             if user_answer_location[counter - current_nback] == " ":
                                 user_answer_location[counter - current_nback] = "O"
                             elif user_answer_location[counter - current_nback] == "O":
                                 user_answer_location[counter - current_nback] = " "
                             elif user_answer_location[counter - current_nback] == "X":
                                 user_answer_location[counter - current_nback] = "O"
-                            #print(f"numbers : {user_answer_location}")
                             play_sound("sound/mouseclicko.wav",volume = 0.5)
                         
                         # positions X button
-                        if clicked(pygame.Rect(890 - 32, 1085, 64, 64)):
+                        if clicked(pygame.Rect(1175, 850, 100, 100)):
                             if user_answer_location[counter - current_nback] == " ":
                                 user_answer_location[counter - current_nback] = "X"
                             elif user_answer_location[counter - current_nback] == "X":
                                 user_answer_location[counter - current_nback] = " "
                             elif user_answer_location[counter - current_nback] == "O":
                                 user_answer_location[counter - current_nback] = "X"
-                            #print(f"numbers : {user_answer_location}")
                             play_sound("sound/mouseclickx.wav",volume = 0.5)
 
                         for event in pygame.event.get():
                             if event.type == pygame.QUIT:
                                 run = False
                             if event.type == pygame.KEYDOWN:
+
+                                # when press p in game
                                 if event.key == pygame.K_p and game_pause_flag == False:
                                     sound_countdown_flag = False
                                     sound_start_flag = False
                                     game_pause_flag = True
+
+                                # when press p again in paused screen
                                 elif event.key == pygame.K_p and game_pause_flag == True:
                                     game_pause_flag = False
+
                                 if event.key == pygame.K_s:
-                                    screenheight = 1000
+                                    screenwidth = 1000
                                     screen = pygame.display.set_mode((screenwidth, screenheight))
                                     # stop_flag is for the description in score screen
                                     stop_flag = True
@@ -1017,6 +1013,7 @@ while run:
                                     sound_start_flag = False
                                     questions_number_rect_lst[counter].center = -200, -200
                                     game = 2
+
                                 if event.key == pygame.K_1 or event.key == pygame.K_KP_1:
                                     if user_answer_numbers[counter - current_nback] == " ":
                                         user_answer_numbers[counter - current_nback] = "O"
@@ -1025,7 +1022,7 @@ while run:
                                     elif user_answer_numbers[counter - current_nback] == "X":
                                         user_answer_numbers[counter - current_nback] = "O"
                                     play_sound("sound/mouseclicko.wav",volume = 0.5)
-                                    #print(f"numbers : {user_answer_numbers}")
+                                    
                                 if event.key == pygame.K_2 or event.key == pygame.K_KP_2:
                                     if user_answer_numbers[counter - current_nback] == " ":
                                         user_answer_numbers[counter - current_nback] = "X"
@@ -1034,7 +1031,7 @@ while run:
                                     elif user_answer_numbers[counter - current_nback] == "O":
                                         user_answer_numbers[counter - current_nback] = "X"
                                     play_sound("sound/mouseclickx.wav",volume = 0.5)
-                                    #print(f"numbers : {user_answer_numbers}")
+                                    
                                 if event.key == pygame.K_3 or event.key == pygame.K_KP_3:
                                     if user_answer_location[counter - current_nback] == " ":
                                         user_answer_location[counter - current_nback] = "O"
@@ -1043,7 +1040,7 @@ while run:
                                     elif user_answer_location[counter - current_nback] == "X":
                                         user_answer_location[counter - current_nback] = "O"
                                     play_sound("sound/mouseclicko.wav",volume = 0.5)
-                                    #print(f"position : {user_answer_location}")
+                                    
                                 if event.key == pygame.K_4 or event.key == pygame.K_KP_4:
                                     if user_answer_location[counter - current_nback] == " ":
                                         user_answer_location[counter - current_nback] = "X"
@@ -1052,42 +1049,53 @@ while run:
                                     elif user_answer_location[counter - current_nback] == "O":
                                         user_answer_location[counter - current_nback] = "X"
                                     play_sound("sound/mouseclickx.wav",volume = 0.5)
-                                    #print(f"position : {user_answer_location}")
+                                    
                                 if event.key == pygame.K_ESCAPE:
                                     run = False
-
-                        if user_answer_location[counter - current_nback] == "O":
-                            pygame.draw.rect(screen, color["green"], (670, 980, 300, 200), 5, border_radius = 5)
-                        elif user_answer_location[counter - current_nback] == "X":
-                            pygame.draw.rect(screen, color["red"], (670, 980, 300, 200), 5, border_radius = 5)
+                        #$%^
+                        # when user submits each answer for number
                         if user_answer_numbers[counter - current_nback] == "O":
-                            pygame.draw.rect(screen, color["green"], (33, 980, 300, 200), 5, border_radius = 5)
+                            pygame.draw.rect(screen, color["green"], (990, 37, 290, 290), 5, border_radius = 5)
                         elif user_answer_numbers[counter - current_nback] == "X":
-                            pygame.draw.rect(screen, color["red"], (33, 980, 300, 200), 5, border_radius = 5)
+                            pygame.draw.rect(screen, color["red"], (990, 37, 290, 290), 5, border_radius = 5)
+                        #$%^
+                        # when user submits each answer for position
+                        if user_answer_location[counter - current_nback] == "O":
+                            pygame.draw.rect(screen, color["green"], (990, 677, 290, 290), 5, border_radius = 5)
+                        elif user_answer_location[counter - current_nback] == "X":
+                            pygame.draw.rect(screen, color["red"], (990, 677, 290,290), 5, border_radius = 5)
+                        
 
                 # if counter goes above the number of questions, aka if no question is left   
                 elif counter >= the_number_of_questions:
-                    
                     new_start_count = new_current_count
-                    screenheight = 1000
+                    #$%^
+                    screenwidth = 1000
                     screen = pygame.display.set_mode((screenwidth, screenheight))
                     one_tenth_seconds = 0
                     level_system["tries"] += 1
 
-                    # Make the file visible(if it is invisible, it can't read it), if file exists
+                    # Make the file visible (if it is invisible, it can't be read), if it exists
                     if os.path.isfile("level.txt"):
-                        os.system("attrib -h level.txt")   
-
-                    # Make the file editable again if file exists
+                        if sys.platform == "win32":
+                            os.system("attrib -h level.txt")
+                        elif sys.platform == "darwin":
+                            os.system("chflags nohidden level.txt")
+                        elif sys.platform.startswith("linux"):
+                            os.system("sudo chattr -i level.txt")
+                    
+                    # Make the file editable again if it it exists
                     if os.path.isfile("level.txt"):
-                        os.chmod("level.txt", S_IRWXU|S_IREAD)
+                        if sys.platform == "win32":
+                            os.system("attrib -r level.txt")
+                        elif sys.platform == "darwin":
+                            os.chmod("level.txt", 0o644)
+                        elif sys.platform.startswith("linux"):
+                            os.chmod("level.txt", 0o644)
 
                     # save the data into the textfile
                     with open("level.txt", "w") as levelfile:
-                        json.dump(level_system, levelfile)
-                        
-                    #print(f"tries :  {level_system['tries']}")
-                    
+                        json.dump(level_system, levelfile)        
 
                     if level_flag == False:
                         for n in range(the_number_of_questions - current_nback):
@@ -1095,8 +1103,6 @@ while run:
                                 level_correct_number_of_positions += 1
                             if answer_numbers[n] == user_answer_numbers[n]:
                                 level_correct_number_of_numbers += 1
-                        #print(f"level_correct_number_of_positions : {level_correct_number_of_positions} , score positions : {round((level_correct_number_of_positions/(the_number_of_questions-current_nback)*100),2)} %")
-                        #print(f"level_correct_number_of_numbers : {level_correct_number_of_numbers}, score numbers : {round((level_correct_number_of_numbers/(the_number_of_questions-current_nback)*100),2)} %")
                         score_for_numbers = round((level_correct_number_of_numbers / (the_number_of_questions-current_nback) * 100), 2)
                         score_for_positions = round((level_correct_number_of_positions / (the_number_of_questions-current_nback) * 100), 2)
                         
@@ -1127,26 +1133,55 @@ while run:
                         if current_nback == 9:
                             if score_for_numbers >= 90 and score_for_positions >= 90 and the_number_of_questions >= current_nback * 3:
                                 level_system["n9_exp"] += 1
-                        
-                        # Make the file visible(if it is invisible, it can't read it)
-                        os.system("attrib -h level.txt")   
 
-                        # Make the file editable again if file exists
+                        # Make the file visible
                         if os.path.isfile("level.txt"):
-                            os.chmod("level.txt", S_IRWXU | S_IREAD)
-                        
-                        # save the data into the textfile
-                        with open("level.txt","w") as levelfile:
+                            # For Windows
+                            if sys.platform == "win32":
+                                os.system("attrib -h level.txt")
+                            # For MacOS
+                            elif sys.platform == "darwin":
+                                os.system("chflags nohidden level.txt")
+                            # For Linux
+                            if sys.platform == "linux" or sys.platform == "linux2":
+                                os.system("chmod 644 level.txt")
+
+                        # Make the file editable again if it it exists
+                        if os.path.isfile("level.txt"):
+                            if sys.platform == "win32":
+                                os.system("attrib -r level.txt")
+                            elif sys.platform == "darwin":
+                                os.chmod("level.txt", 0o644)
+                            elif sys.platform.startswith("linux"):
+                                os.chmod("level.txt", 0o644)
+
+                        # Save the data into the textfile
+                        with open("level.txt", "w") as levelfile:
                             json.dump(level_system, levelfile)
                     
-                    # Make the file invisible
-                    os.system("attrib +h level.txt")
+                    # # Make the file invisible
+                    # os.system("attrib +h level.txt")
 
-                    # Make the file uneditable
-                    os.chmod("level.txt", S_IREAD)
-                    
-                    #print(f"level['1_exp'] : {level_system['n1_exp']}")
-                    #print(f"tries : {level_system['tries']}")
+                    # # Make the file uneditable. Change the file to Read-Only.
+                    # os.chmod("level.txt", S_IREAD)
+
+                    # Make the file invisible, if it exists
+                    if os.path.isfile("level.txt"):
+                        if sys.platform == "win32":
+                            os.system("attrib +h level.txt")
+                        elif sys.platform == "darwin":
+                            os.system("chflags hidden level.txt")
+                        elif sys.platform.startswith("linux"):
+                            os.system("sudo chattr +i level.txt")
+
+                    # Make the file uneditable. Change the file to Read-Only.
+                    if os.path.isfile("level.txt"):
+                        if sys.platform == "win32":
+                            os.system("attrib +r level.txt")
+                        elif sys.platform == "darwin":
+                            os.chmod("level.txt", 0o444)
+                        elif sys.platform.startswith("linux"):
+                            os.chmod("level.txt", 0o444)
 
                     level_correct_number_of_positions, level_correct_number_of_numbers = 0, 0
                     # level_flag = False
@@ -1156,11 +1191,7 @@ while run:
     elif game == 2:
         screen.fill(color["black"])
         current_count = time.time()
-        #print(current_count - start_count)
-        #print(f"user_answer_location : {user_answer_location}")
-        #print(f"user_answer_numbers : {user_answer_numbers}")
-    
-
+        
         if score_flag == False:
             score_flag = True
             for i in range(the_number_of_questions - current_nback):
@@ -1170,8 +1201,6 @@ while run:
                     correct_number_of_questions_numbers += 1
             texts_score[1] = round((correct_number_of_questions_location / (the_number_of_questions-current_nback) * 100), 2)
             texts_score[2] = round((correct_number_of_questions_numbers / (the_number_of_questions-current_nback) * 100), 2)
-            #print(f"texts_score[1]:{texts_score[1]}")
-            #print(f"texts_score[2]:{texts_score[2]}")
             now = datetime.datetime.now()
             a = f"\nN back Report - {datetime.datetime(now.year, now.month, now.day,now.hour, now.minute, now.second)}\nCurrent N : {current_nback} Back / Intervals : {the_duration_between_each_number}s"
             b = f"----------------------------------------\nPositions :\n|1|2|3|\n|4|5|6| <- Position grid\n|7|8|9|\nQuestions, Correct answers, your answers (below)"
@@ -1186,7 +1215,7 @@ while run:
                 if dd != len(answer_location) - 1:
                     d += f"|{answer_location[dd]}"
                 else:
-                    d += f"|{answer_location[dd]}|" 
+                    d += f"|{answer_location[dd]}|"
             e = " " * 2 * current_nback
             for ee in range(len(user_answer_location)):
                 if ee != len(user_answer_location) - 1:
@@ -1213,7 +1242,7 @@ while run:
                 else:
                     i += f"|{user_answer_numbers[ii]}|"
             j = f"----------------------------------------\nScore for numbers : {round(texts_score[2], 2)} %"
-            k = f"Score for positions : {round(texts_score[1], 2)} %\ncontact creator : jsk.jinsung@gmail.com "
+            k = f"Score for positions : {round(texts_score[1], 2)} %\nContact creator : jsk.jinsung@gmail.com "
             result_textfile = [a, f, g, h, i, b, c, d, e, j, k]
             for each in result_textfile:
                 print(each)
@@ -1262,6 +1291,7 @@ while run:
                 else:
                     show_text(screen, f"{current_nback} back point earned!", (screenwidth / 2, 590), color["white"], 15, "font/F25_bank_Printer.otf")
         
+
         if button_play_with_the_same_sequence.surface_rect.collidepoint(pygame.mouse.get_pos()):
             pygame.draw.rect(screen, color["sky blue"], (260, 668, 480, 64), width = 5)
             show_text(screen, "Press 1", (785,700),color["white"],15,"font/F25_bank_Printer.otf")
@@ -1292,8 +1322,9 @@ while run:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     run = False
+                
                 if event.key == pygame.K_1 or event.key == pygame.K_KP1:
-                    screenheight = 1200
+                    screenwidth = 1300
                     screen = pygame.display.set_mode((screenwidth, screenheight))
                     counter = 0
                     questions_start = False
@@ -1332,7 +1363,7 @@ while run:
                 
                 # New game
                 if event.key == pygame.K_3 or event.key == pygame.K_KP3:
-                    screenheight = 1200
+                    screenwidth = 1300
                     screen = pygame.display.set_mode((screenwidth, screenheight))
                     counter = 0
                     questions_start = False
@@ -1382,8 +1413,9 @@ while run:
                     main_menu_flag = True
                     one_tenth_seconds = 0
                     game = 0
-        if button_play_with_the_same_sequence.clicked():
-            screenheight = 1200
+        # when user clicks 'practice the same sequence' button
+        if clicked(button_play_with_the_same_sequence.surface_rect):
+            screenwidth = 1300
             screen = pygame.display.set_mode((screenwidth, screenheight))
             counter = 0
             questions_start = False
@@ -1412,8 +1444,20 @@ while run:
             button_key4_rect.center = -200, -200
             one_tenth_seconds = 0
             game = 1
-        if button_new_game.clicked():
-            screenheight = 1200
+        
+        # when user clicks 'Save result as text' button
+        if clicked(button_save_result.surface_rect) and button_save_result_flag == False:
+            button_save_result_flag = True
+            print(f'The file is saved!\nFile name : N back Result({now.date()}).txt')
+            with open(f"N back Result({now.date()}).txt", "a", encoding = "utf-8") as file:
+                for line in result_textfile:
+                    file.writelines(line)
+                    file.write("\n")
+                file.write("\n")
+        
+        # when user clicks 'New game' button
+        if clicked(button_new_game.surface_rect):
+            screenwidth = 1300
             screen = pygame.display.set_mode((screenwidth, screenheight))
             counter = 0
             questions_start = False
@@ -1438,7 +1482,9 @@ while run:
             button_key4_rect.center = -200, -200
             one_tenth_seconds = 0
             game = 1
-        if button_main_menu.clicked():
+        
+        # when user clicks 'Main menu' button
+        if clicked(button_main_menu.surface_rect):
             counter = 0
             questions_start = False
             score_flag = False
@@ -1462,19 +1508,21 @@ while run:
             main_menu_flag = True
             one_tenth_seconds = 0
             game = 0
-        if button_save_result.clicked() and button_save_result_flag == False:
-            button_save_result_flag = True
-            with open(f"N back Result({now.date()}).txt", "a", encoding = "utf-8") as file:
-                for line in result_textfile:
-                    file.writelines(line)
-                    file.write("\n")
-                file.write("\n")
-            #print("Result saved")
 
     # game settings
     elif game == 3:
         screen.fill(color["black"])
-        #print(pygame.mouse.get_pos())
+
+        """
+        texts_game_settings = [
+                                "Game settings","# N", "Choices <numbers>",
+                                "Choices <positions>", "# of events",
+                                "Time intervals(s)", "Main menu", "(Press 'm')",
+                                "(1 ~ 9, default : 1)","(2 ~ 9, default : 9)",
+                                "(2 ~ 9, default : 9)", "(Current N + 1 ~ 99, default : 10)",
+                                "(2 ~ 99, default : 5)"
+                              ]
+        """
         show_text(screen, texts_game_settings[0], (screenwidth / 2, 110), color["green"], 70, "font/sketched.ttf")
         show_text(screen, texts_game_settings[1], (152, 230-18), color["white"], 33, "font/F25_bank_Printer.otf",False)
         show_text(screen, texts_game_settings[2], (152, 340-18), color["white"], 33, "font/F25_bank_Printer.otf",False)
@@ -1492,6 +1540,16 @@ while run:
         show_text(screen,"For example, if you choose 5, then only numbers 1 to 5 may appear", (screenwidth / 2 - 65, 420), color["light grey"], 25, "font/cleanfont.ttf")
         show_text(screen, "Choose how many different tile positions will appear in a game", (screenwidth / 2 - 85, 512), color["light grey"], 25, "font/cleanfont.ttf")
         show_text(screen,"Length of time each number and tile will appear on the screen",(screenwidth / 2 - 82, 750), color["light grey"], 25, "font/cleanfont.ttf")
+        
+        """
+        a : nback                       ex) 2 => 2 back
+                                        ex) 6 => 6 back
+        b : choice of numbers.          ex) 5 => display numbers between 1~5
+                                        ex) 9 => display numbers between 1~9
+        c : choice of positions.        ex) 5 => display position tile between 1~5
+        d : number of questions.        ex) 12 => 12 different (number, position) pair will show up
+        e : duration between questions. ex) 5 => each (number, position) pair shows up for 5 seconds
+        """
         a = font_banknumbers.render(user_nback, True, color["not too bright white"])
         b = font_banknumbers.render(user_choices_numbers, True, color["not too bright white"])
         c = font_banknumbers.render(user_choices_positions, True, color["not too bright white"])
@@ -1508,11 +1566,11 @@ while run:
             screen.blit(e, (780,690))
         elif len(user_the_duration_between_each_number) == 1:
             screen.blit(e, (800,690))
-        
+
+
         if hovered(game_settings_main_menu_rect) or user_main_menu_flag == True:
             pygame.draw.rect(screen,color["green"],(340,850,320,100),3,2)
-            
-        
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -1568,15 +1626,12 @@ while run:
                     if (user_input_n_flag == True and user_nback == "") or (user_input_n_flag == True and int(user_nback) == 0):
                         user_nback = "1"
                         current_nback = 1
-                        #print(f"current_nback : {current_nback}")
                     elif (user_input_choices_numbers_flag == True and user_choices_numbers == "") or (user_input_choices_numbers_flag == True and (int(user_choices_numbers) == 0 or int(user_choices_numbers) == 1)):
                         user_choices_numbers = "9"
                         choices_numbers = 9
-                        #print(f"choices_numbers : {choices_numbers}")
                     elif (user_input_choices_positions_flag == True and user_choices_positions == "") or (user_input_choices_positions_flag == True and (int(user_choices_positions) == 0 or int(user_choices_positions) == 1)):
                         user_choices_positions = "9"
                         choices_positions = 9
-                        #print(f"choices_positions : {choices_positions}")
                     elif (user_input_number_of_questions_flag == True and user_number_of_questions == "") or (user_input_number_of_questions_flag == True and int(user_number_of_questions) == 0) or (user_input_number_of_questions_flag == True and int(user_number_of_questions)<=current_nback):
                         user_number_of_questions = str(10)
                         the_number_of_questions = 10
@@ -1624,10 +1679,6 @@ while run:
                             
                                 user_nback += event.unicode
                                 current_nback = int(user_nback)
-                        # if user_nback == "0":
-                        #     current_nback = 1
-                        #     print(f"current_nback : {current_nback}")
-                    #print(f"current_nback : {current_nback}")
 
                 if user_input_choices_numbers_flag == True:
                     if event.key == pygame.K_BACKSPACE:
@@ -1640,7 +1691,6 @@ while run:
                             
                                 user_choices_numbers += event.unicode
                                 choices_numbers = int(user_choices_numbers)
-                    #print(f"choices_numbers : {choices_numbers}")
                 if user_input_choices_positions_flag == True:
                     if event.key == pygame.K_BACKSPACE:
                         user_choices_positions = user_choices_positions[:-1]
@@ -1652,7 +1702,6 @@ while run:
                             
                                 user_choices_positions += event.unicode
                                 choices_positions = int(user_choices_positions)
-                    #print(f"choices_positions : {choices_positions}")
                 if user_input_number_of_questions_flag == True:
                     if event.key == pygame.K_BACKSPACE:
                         user_number_of_questions = user_number_of_questions[:-1]
@@ -1664,7 +1713,6 @@ while run:
                             
                                 user_number_of_questions += event.unicode
                                 the_number_of_questions = int(user_number_of_questions)
-                    #print(f"number_of_questions : {the_number_of_questions}")
                 if user_input_time_intervals_flag == True:
                     if event.key == pygame.K_BACKSPACE:
                         user_the_duration_between_each_number = user_the_duration_between_each_number[:-1]
@@ -1677,7 +1725,6 @@ while run:
                                 user_the_duration_between_each_number += event.unicode
                                 the_duration_between_each_number = int(user_the_duration_between_each_number)
                                 
-                    #print(f"the duration between each number : {the_duration_between_each_number}")
                 if user_main_menu_flag == True:
                     pygame.draw.rect(screen, color["green"], (340, 850, 320, 100), 3, 2)
                 
@@ -1712,6 +1759,7 @@ while run:
                     pygame.draw.line(screen, color["white"], (837, 328), (837, 378))
                 elif len(user_choices_numbers) == 0:
                     pygame.draw.line(screen, color["white"], (797, 328), (797, 378))
+        
         if user_input_choices_positions_flag == False:
             pygame.draw.rect(screen, color["light grey"], user_input_choices_positions_rect, 2)
         else:
@@ -1743,6 +1791,7 @@ while run:
                     pygame.draw.line(screen, color["white"], (837, 568), (837, 618))
                 elif len(user_number_of_questions) == 0:
                     pygame.draw.line(screen, color["white"], (797, 568), (797, 618))
+        
         if user_input_time_intervals_flag == False:
             pygame.draw.rect(screen, color["light grey"], user_input_time_intervals_rect, 2)
         else:
@@ -1764,18 +1813,19 @@ while run:
         if (user_input_n_flag == False and user_nback == "") or (user_input_n_flag == False and int(user_nback) == 0):
             user_nback = "1"
             current_nback = 1
-            #print(f"current_nback : {current_nback}")
+        
         if (user_input_choices_numbers_flag == False and user_choices_numbers == "") or (user_input_choices_numbers_flag == False and (int(user_choices_numbers) == 0 or int(user_choices_numbers) == 1)):
             user_choices_numbers = "9"
             choices_numbers = 9
-            #print(f"choices_numbers : {choices_numbers}")
+        
         if (user_input_choices_positions_flag == False and user_choices_positions == "") or (user_input_choices_positions_flag == False and (int(user_choices_positions) == 0 or int(user_choices_positions) == 1)):
             user_choices_positions = "9"
             choices_positions = 9
-            #print(f"choices_positions : {choices_positions}")
+        
         if (user_input_number_of_questions_flag == False and user_number_of_questions == "") or (user_input_number_of_questions_flag == False and int(user_number_of_questions) == 0) or (user_input_number_of_questions_flag == False and int(user_number_of_questions)<=current_nback):
             user_number_of_questions = "10"
             the_number_of_questions = 10
+        
         if (user_input_time_intervals_flag == False and user_the_duration_between_each_number == "") or (user_input_time_intervals_flag == False and (int(user_the_duration_between_each_number) == 0 or int(user_the_duration_between_each_number) == 1)):
             user_the_duration_between_each_number = "5"
             the_duration_between_each_number = 5
@@ -1789,7 +1839,6 @@ while run:
                 level_system = json.load(file)
         except:
             pass
-        #print(level_system["n2_exp"])
         
         if level_system["n9_exp"] >= 100:
             pygame.draw.rect(screen, color["black"], (200, 355, 600, 50), border_radius = 2)
@@ -1840,7 +1889,7 @@ while run:
             pygame.draw.rect(screen, color["white"], (200, 355, 600, 50), border_radius = 2)
             show_text(screen, "white", (screenwidth / 2, 470), color["white"], 50, "font/F25_bank_Printer.otf")
         
-        # # show completed games
+        # show completed games
         show_text(screen,f"Completed games : {level_system['tries']}", (screenwidth / 2, 735), color["white"], 15, "font/F25_bank_Printer.otf")
         show_text(screen,"<Points>", (screenwidth / 2, 765), color["white"], 15, "font/F25_bank_Printer.otf")
         show_text(screen,f"1 back : {level_system['n1_exp']}   /   2 back : {level_system['n2_exp']}   /   3 back : {level_system['n3_exp']}", (screenwidth / 2, 795), color["white"], 15, "font/F25_bank_Printer.otf")
@@ -1849,40 +1898,39 @@ while run:
 
         if hovered(pygame.draw.circle(screen, color["white"], (screenwidth / 2 - (70 * 4) - 35, 560), 20)):
             multiline_text(screen, 15, "<White belt>\n\nEveryone starts here\nA humble beginner", color["white"], (screenwidth / 2, 610), 10, "font/F25_bank_Printer.otf")
+        
         if hovered(pygame.draw.circle(screen, color["yellow"], (screenwidth / 2 - (70 * 3) - 35, 560), 20)):
             multiline_text(screen, 15, "<Yellow belt>\n\nRequirements:\n\nComplete games 50 times & 1 back point : 5\nOr\n1 back point : 10", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n1 Back point(s) : {level_system['n1_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
+            
         if hovered(pygame.draw.circle(screen, color["sky blue"], (screenwidth / 2 - (70 * 2) - 35, 560), 20)):
             multiline_text(screen, 15, "<Blue belt>\n\nRequirements:\n\nComplete games 50 times & 2 back point : 10\nOr\n2 back point : 20", color["white"], (screenwidth/2,610), 1, "font/F25_bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n2 Back point(s) : {level_system['n2_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
+        
         if hovered(pygame.draw.circle(screen, color["green"], (screenwidth / 2 - (70 * 1) - 35, 560), 20)):
             multiline_text(screen, 15, "<Green belt>\n\nRequirements:\n\nComplete games 50 times & 3 back point : 15\nOr\n3 back point : 30", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n3 Back point(s) : {level_system['n3_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
+        
         if hovered(pygame.draw.circle(screen, color["brown"], (screenwidth / 2 + (70 * 0) - 35, 560), 20)):
             multiline_text(screen, 15, "<Brown belt>\n\nRequirements:\n\nComplete games 80 times & 4 back point : 20\nOr\n4 back point : 40", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n4 Back point(s) : {level_system['n4_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
+        
         if hovered(pygame.draw.circle(screen, color["red"],(screenwidth / 2 + (70 * 0) + 35, 560), 20)):
             multiline_text(screen, 15, "<Red belt>\n\nRequirements:\n\nComplete games 100 times & 5 back point : 25\nOr\n5 back point : 50", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n5 Back point(s) : {level_system['n5_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
+        
         if hovered(pygame.draw.circle(screen, color["black"], (screenwidth / 2 + (70 * 1) + 35, 560), 20)):
             multiline_text(screen, 15, "<Black belt>\n\nRequirements:\n\nComplete games 100 times & 6 back point : 30\nOr\n6 back point : 60", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
-            #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n6 Back point(s) : {level_system['n6_exp']}",color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
-        #print(pygame.mouse.get_pos())
+
         if level_system["tries"] >= 50:
             pygame.draw.circle(screen, color["black"], (screenwidth / 2 + (70 * 2) + 35, 560), 20)
             starimg = pygame.image.load("img/star.png")
             starimg = pygame.transform.scale(starimg, (10, 10))
             starimg_rect = starimg.get_rect(center = (screenwidth / 2 + (70 * 2) + 35, 559))
-            
             screen.blit(starimg, starimg_rect)
             if hovered(pygame.Rect(655, 540, 40, 40)):
                 multiline_text(screen, 15, "<Master>\n\nRequirements:\n\n7 back point : 100", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n7 Back point(s) : {level_system['n7_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
+                
         else:
             pygame.draw.circle(screen, color["light grey"], (screenwidth / 2 + (70 * 2) + 35, 560), 20)
             if hovered(pygame.Rect(655, 540, 40, 40)):
                 multiline_text(screen, 15, "Locked\nComplete 50 games to unlock", color["white"], (screenwidth / 2, 610), 25, "font/F25_bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n7 Back point(s) : {level_system['n7_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
+                
 
         if level_system["tries"] >= 75:
             pygame.draw.circle(screen, color["black"], (screenwidth / 2 + (70 * 3) + 35, 560), 20)
@@ -1894,12 +1942,12 @@ while run:
             screen.blit(starimg, starimg_rect2)
             if hovered(pygame.Rect(725, 540, 40, 40)):
                 multiline_text(screen, 15, "<Grand Master>\n\nRequirements:\n\n8 back point : 100", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n8 Back point(s) : {level_system['n8_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
+                
         else:
             pygame.draw.circle(screen, color["light grey"], (screenwidth / 2 + (70 * 3) + 35, 560), 20)
             if hovered(pygame.Rect(725, 540, 40, 40)):
                 multiline_text(screen, 15, "Locked\nComplete 75 games to unlock", color["white"], (screenwidth / 2, 610), 25, "font/F25_bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n8 Back point(s) : {level_system['n8_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
+                
         
         if level_system["tries"] >= 100:
             pygame.draw.circle(screen, color["black"], (screenwidth / 2 + (70 * 4) + 35, 560), 20)
@@ -1911,25 +1959,23 @@ while run:
             screen.blit(starimg, starimg_rect)
             screen.blit(starimg, starimg_rect2)
             screen.blit(starimg, starimg_rect3)
-            
             if hovered(pygame.Rect(795, 540, 40, 40)):
                 multiline_text(screen, 15, "<God>\n\nRequirements:\n\n9 back point : 100", color["white"], (screenwidth / 2, 610), 1, "font/F25_bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n9 Back point(s) : {level_system['n9_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
         else:
             pygame.draw.circle(screen, color["light grey"], (screenwidth / 2 + (70 * 4) + 35, 560), 20)
             if hovered(pygame.Rect(795, 540, 40, 40)):
                 multiline_text(screen, 15, "Locked\nComplete 100 games to unlock", color["white"], (screenwidth / 2, 610), 25, "font/F25_bank_Printer.otf")
-                #multiline_text(screen, 15, f"Completed games : {level_system['tries']}\n9 Back point(s) : {level_system['n9_exp']}", color["white"], (screenwidth / 2, 800), 10, "font/F25_bank_Printer.otf")
-        
-        #pygame.draw.rect(screen, color["white"],())
+                
         show_text(screen, "Main menu", (screenwidth / 2, 890), color["white"], 50, "font/sketched.ttf")
         show_text(screen, "(Press 'm')", (screenwidth / 2, 930), color["white"], 15, "font/F25_bank_Printer.otf")
-        #print(pygame.mouse.get_pos())
+        
         if hovered(pygame.Rect(340, 850, 320, 100)):
             pygame.draw.rect(screen, color["green"], (340, 850, 320, 100), 3, 2)
+        
         if clicked(pygame.Rect(340, 850, 320, 100)):
             play_sound("sound/click1.wav")
             game = 0
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -1975,8 +2021,11 @@ while run:
             show_text(screen,"7 8 4 2 3", (592,354), color["green"],30,"font/cleanfont.ttf")
             show_text(screen, "Go to tutorial", (770,800),color["white"],30,"font/cleanfont.ttf")
             screen.blit(arrow_tutorial,(850,785))
+            
+            # when 'Go to tutorial' is hovered
             if hovered(pygame.Rect(700,775,180,40)):
                 show_text(screen, "Go to tutorial", (770,800),color["green"],30,"font/cleanfont.ttf")
+            
             # click go to tutorial
             if clicked(pygame.Rect(700,775,180,40)):
                 tutorial_time_flag = False
@@ -2015,102 +2064,113 @@ while run:
                 tutorial_start_time = time.time()
                 tutorial_next_flag = 0
             tutorial_current_time = time.time()
-            # print(tutorial_current_time - tutorial_start_time)
-            # print(tutorial_next_flag)
+
             if tutorial_next_flag == 0:
+                
                 if 1 < tutorial_current_time - tutorial_start_time :
                     texts_tutorials[0] = "\n\n\nThere are 9 different tiles on the left hand side."
                     texts_tutorials_coordinates[0] = [700, 280]
+                
                 if 2 < tutorial_current_time - tutorial_start_time < 2.2:
                     pygame.draw.rect(screen, color["white"], (210 - 80 - 10, 250, 80, 80), border_radius = 2)
-                    #texts_tutorials[1] = "1"
-                    #texts_tutorials_coordinates[1] = [160,290]
+                
                 if 2.2 < tutorial_current_time - tutorial_start_time < 2.4:
                     pygame.draw.rect(screen, color["white"], (210, 250, 80, 80), border_radius = 2)
-                    #texts_tutorials[1] = "2"
-                    #texts_tutorials_coordinates[1] = [250,290]
+                
                 if 2.4 < tutorial_current_time - tutorial_start_time < 2.6:
                     pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 250, 80, 80), border_radius = 2)
-                    #texts_tutorials[1] = "3"
-                    #texts_tutorials_coordinates[1] = [340,290]
+                
                 if 2.6 < tutorial_current_time - tutorial_start_time < 2.8:
                     pygame.draw.rect(screen, color["white"], (210 - 80 - 10, 340, 80, 80), border_radius = 2)
-                    #texts_tutorials[1] = "4"
-                    #texts_tutorials_coordinates[1] = [160,380]
+                
                 if 2.8 < tutorial_current_time - tutorial_start_time < 3:
                     pygame.draw.rect(screen, color["white"], (210, 340, 80, 80), border_radius = 2)
-                    #texts_tutorials[1] = "5"
-                    #texts_tutorials_coordinates[1] = [250,380]
+                
                 if 3 < tutorial_current_time - tutorial_start_time < 3.2:
                     pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 340, 80, 80), border_radius = 2)
-                    #texts_tutorials[1] = "6"
-                    #texts_tutorials_coordinates[1] = [340,380]
+                
                 if 3.2 < tutorial_current_time - tutorial_start_time < 3.4:
                     pygame.draw.rect(screen, color["white"], (210 - 80 - 10, 430, 80, 80), border_radius = 2)
-                    #texts_tutorials[1] = "7"
-                    #texts_tutorials_coordinates[1] = [160,470]
+                
                 if 3.4 < tutorial_current_time - tutorial_start_time < 3.6:
                     pygame.draw.rect(screen, color["white"], (210, 430, 80, 80), border_radius = 2)
-                    #texts_tutorials[1] = "8"
-                    #texts_tutorials_coordinates[1] = [250,470]
+                
                 if 3.6 < tutorial_current_time - tutorial_start_time < 3.8:
                     pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 430, 80, 80), border_radius = 2)
-                    #texts_tutorials[1] = "9"
-                    #texts_tutorials_coordinates[1] = [340,470]
+                
                 if 4.4 < tutorial_current_time - tutorial_start_time:
                     texts_tutorials[0] = "\n\nThere are 9 different tiles on the left hand side.\n\nClick the arrow below to proceed."
+                
                 if 4.4 < tutorial_current_time - tutorial_start_time and tutorial_next_flag == 0:
                     screen.blit(arrow_tutorial,(684,500))
+                    
                     if clicked(pygame.Rect(684,500,32,32)):
                         play_sound("sound/click1.wav")
-                        
-                        
                         tutorial_next_flag = 1
                         tutorial_start_time = tutorial_current_time
 
             if tutorial_next_flag == 1:
+                
                 if 0 < tutorial_current_time - tutorial_start_time:
                     texts_tutorials[0] = "\nIn the previous description,\n\nwe talked about the sequence\n\nwhich consists of only numbers."
+                
                 screen.blit(arrow_tutorial,(684,500))
+                
                 if clicked(pygame.Rect(684,500,32,32)):
                     play_sound("sound/click1.wav")
                     tutorial_next_flag = 2
                     tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 2:
+                
                 if 0 < tutorial_current_time - tutorial_start_time :
                     texts_tutorials[0] = "\nBut also,\n\neach tile position makes up\n\na new sequence."
+                
                 screen.blit(arrow_tutorial,(684,500))
+                
                 if clicked(pygame.Rect(684,500,32,32)):
                     play_sound("sound/click1.wav")
                     tutorial_next_flag = 3
                     tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 3:
+                
                 if 0 < tutorial_current_time - tutorial_start_time < 2:
                     texts_tutorials[0] = "\nIn 3 seconds,\n\n3 different tiles will be illuminated\n\none after the other."
+                
                 screen.blit(arrow_tutorial,(684,500))
+                
                 if clicked(pygame.Rect(684,500,32,32)):
                     play_sound("sound/click1.wav")
                     tutorial_next_flag = 4
                     tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 4:
+                
                 if 0 < tutorial_current_time - tutorial_start_time < 1:
                     texts_tutorials[0] = "\n\n\n3"
+                
                 if 1 < tutorial_current_time - tutorial_start_time < 2:
                     texts_tutorials[0] = "\n\n\n2"
+                
                 if 2 < tutorial_current_time - tutorial_start_time < 3:
                     texts_tutorials[0] = "\n\n\n1"
+                
                 if 3 <tutorial_current_time - tutorial_start_time :
                     texts_tutorials[0] = "\n\n"
+                
                 if 3.5 < tutorial_current_time - tutorial_start_time < 4.1:
-                    #6
+                    # position 6
                     pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 340, 80, 80), border_radius =  2)
 
                 if 4.2 < tutorial_current_time - tutorial_start_time < 4.8:
-                    # 1
+                    # position 1
                     pygame.draw.rect(screen, color["white"], (210 - 80 - 10, 250, 80, 80),  border_radius =  2)
+                
                 if 4.9 < tutorial_current_time - tutorial_start_time < 5.5:
-                    # 8
+                    # position 8
                     pygame.draw.rect(screen, color["white"], (210, 430, 80, 80), border_radius =  2)
+                
                 if 6 < tutorial_current_time - tutorial_start_time:
                     show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
@@ -2121,6 +2181,7 @@ while run:
                     show_text(screen, "7",(250-80-10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
+                
                 if 7 < tutorial_current_time - tutorial_start_time:
                     texts_tutorials[0] = "\n\nEach tile is assigned a number\n\nWhat was the sequence of the tile positions?"
                     screen.blit(arrow_tutorial,(684,500))
@@ -2128,7 +2189,9 @@ while run:
                         play_sound("sound/click1.wav")
                         tutorial_next_flag = 5
                         tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 5:
+                
                 if 0 < tutorial_current_time - tutorial_start_time:
                     show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
@@ -2140,12 +2203,16 @@ while run:
                     show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     texts_tutorials[0] = "\n\nThe answer is\n\n6, 1, 8."
+                
                 screen.blit(arrow_tutorial,(684,500))
+                
                 if clicked(pygame.Rect(684,500,32,32)):
                     play_sound("sound/click1.wav")
                     tutorial_next_flag = 6
                     tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 6:
+                
                 if 0 < tutorial_current_time - tutorial_start_time:
                     show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
@@ -2157,12 +2224,16 @@ while run:
                     show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     texts_tutorials[0] = "Sequence for tile positions : 6, 1, 8\n\nLet's say we are currently playing\n1 back game,\n\nthe tile position one event ago is 1."
+                
                 screen.blit(arrow_tutorial,(684,500))
+                
                 if clicked(pygame.Rect(684,500,32,32)):
                     play_sound("sound/click1.wav")
                     tutorial_next_flag = 7
                     tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 7:
+                
                 if 0 < tutorial_current_time - tutorial_start_time:
                     show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
@@ -2174,12 +2245,16 @@ while run:
                     show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     texts_tutorials[0] = "Sequence for tile positions : 6, 1, 8\n\nOr let's say\nwe are playing 2 back game,\n\nthe tile position two events ago is 6."
+                
                 screen.blit(arrow_tutorial,(684,500))
+                
                 if clicked(pygame.Rect(684,500,32,32)):
                     play_sound("sound/click1.wav")
                     tutorial_next_flag = 8
                     tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 8:
+                
                 if 0 < tutorial_current_time - tutorial_start_time:
                     show_text(screen, "1",(250-80-10, 290),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "2",(250, 290),color["white"],30,"font/F25_bank_Printer.otf")
@@ -2191,68 +2266,94 @@ while run:
                     show_text(screen, "8",(250, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen, "9",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     texts_tutorials[0] = "Sequence for tile positions : 6, 1, 8\n\nIf we are playing 2 back game,\nthe answer for the tile position would be 'X',\n\nbecause the tile position two events ago (6) is different\nfrom the current tile position (8)."
+                    
                     screen.blit(arrow_tutorial,(684,500))
+                    
                     if clicked(pygame.Rect(684,500,32,32)):
                         play_sound("sound/click1.wav")
                         tutorial_next_flag = 9
                         tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 9:
+                
                 if 0 < tutorial_current_time - tutorial_start_time < 2:
                     texts_tutorials[0] = "\n\n\nNow let's play a simple game."
+                
                 if 2 < tutorial_current_time - tutorial_start_time :
                     texts_tutorials[0] = "It will be a 1 back game (N = 1).\n\nTry to remember the number and the tile position\none event ago.\n\nThe number and the tile position will appear\nfor 5 seconds each."
+                    
                     screen.blit(arrow_tutorial,(684,500))
+                    
                     if clicked(pygame.Rect(684,500,32,32)):
                         play_sound("sound/click1.wav")
                         tutorial_next_flag = 10
                         tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 10:
+                
                 if 0 < tutorial_current_time - tutorial_start_time < 1:
                     texts_tutorials[0] = "\n\n\n3"
+                
                 if 1 < tutorial_current_time - tutorial_start_time < 2:
                     texts_tutorials[0] = "\n\n\n2"
+                
                 if 2 < tutorial_current_time - tutorial_start_time < 3:
                     texts_tutorials[0] = "\n\n\n1"
+                
                 if 3 < tutorial_current_time - tutorial_start_time < 8:
                     # number 1, position 7
                     show_text(screen, "1",(250-80-10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     pygame.draw.rect(screen, color["white"], (210 - 80 - 10, 430, 80, 80),5, border_radius = 2)
                     
                     screen.blit(arrow_tutorial,(684,500))
+                    
                     if clicked(pygame.Rect(684,500,32,32)):
                         play_sound("sound/click1.wav")
                         texts_tutorials[0] = " "
                         tutorial_next_flag = 11
                         tutorial_start_time = tutorial_current_time
+                
                 if 3 < tutorial_current_time - tutorial_start_time < 4:    
                     texts_tutorials[0] = "Time left : 5 seconds"
+                
                 if 4 < tutorial_current_time - tutorial_start_time < 5:    
                     texts_tutorials[0] = "Time left : 4 seconds"
+                
                 if 5 < tutorial_current_time - tutorial_start_time < 6:    
                     texts_tutorials[0] = "Time left : 3 seconds"
+                
                 if 6 < tutorial_current_time - tutorial_start_time < 7:    
                     texts_tutorials[0] = "Time left : 2 seconds"
+                
                 if 7 < tutorial_current_time - tutorial_start_time < 8:    
                     texts_tutorials[0] = "Time left : 1 second"
+                
                 if 8 < tutorial_current_time - tutorial_start_time:
                     tutorial_next_flag = 11
                     tutorial_start_time = tutorial_current_time
 
             if tutorial_next_flag == 11:
+                
                 if 0 < tutorial_current_time - tutorial_start_time < 5:
                     # number 1, position 9
                     show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
                     pygame.draw.rect(screen, color["white"], (250 + 40 + 10, 430, 80, 80),5, border_radius = 2)
+                
                 if 0 < tutorial_current_time - tutorial_start_time < 1:    
                     texts_tutorials[0] = "Time left : 5 seconds"
+                
                 if 1 < tutorial_current_time - tutorial_start_time < 2:    
                     texts_tutorials[0] = "Time left : 4 seconds"
+                
                 if 2 < tutorial_current_time - tutorial_start_time < 3:    
                     texts_tutorials[0] = "Time left : 3 seconds"
+                
                 if 3 < tutorial_current_time - tutorial_start_time < 4:    
                     texts_tutorials[0] = "Time left : 2 seconds"
+                
                 if 4 < tutorial_current_time - tutorial_start_time < 5:    
                     texts_tutorials[0] = "Time left : 1 second"
+                
                 if 5 < tutorial_current_time - tutorial_start_time:
                     # number 1, position 9
                     show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
@@ -2261,20 +2362,25 @@ while run:
                     texts_tutorials[0] = "Do you remember\n\nthe number and the tile position\n\none event ago?"
                     show_text(screen,"No",(700-50,470),color["white"],30,"font/F25_bank_Printer.otf")
                     show_text(screen,"Yes",(700+50,470),color["white"],30,"font/F25_bank_Printer.otf")
+                    
                     if hovered(pygame.Rect(624,447,50,40)):
                         pygame.draw.rect(screen,color["white"],(624,447,50,40),width = 2,border_radius = 2)
+                    
                     if hovered(pygame.Rect(716,447,66,40)):
                         pygame.draw.rect(screen,color["white"],(716,447,66,40),width = 2,border_radius = 2)
+                    
                     # click no
                     if clicked(pygame.Rect(624,447,50,40)):
                         play_sound("sound/click1.wav")
                         tutorial_next_flag = 10
                         tutorial_start_time = tutorial_current_time
+                    
                     # click yes
                     if clicked(pygame.Rect(716,447,66,40)):
                         play_sound("sound/click1.wav")
                         tutorial_next_flag = 12
                         tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 12:
                 
                 # number 1, position 9
@@ -2289,6 +2395,7 @@ while run:
                 screen.blit(img_x_numbers,img_x_numbers_rect)
                 screen.blit(img_o_positions,img_o_positions_rect)
                 screen.blit(img_x_positions,img_x_positions_rect)
+                
                 if clicked(img_o_numbers_rect):
                     if tutorial_answer[0] == " ":
                         tutorial_answer[0] = "O"
@@ -2297,7 +2404,7 @@ while run:
                     elif tutorial_answer[0] == "X":
                         tutorial_answer[0] = "O"
                     play_sound("sound/click1.wav")
-                    #print(tutorial_answer)
+                    
                 if clicked(img_x_numbers_rect):
                     if tutorial_answer[0] == " ":
                         tutorial_answer[0] = "X"
@@ -2306,7 +2413,7 @@ while run:
                     elif tutorial_answer[0] == "O":
                         tutorial_answer[0] = "X"
                     play_sound("sound/click1.wav")
-                    #print(tutorial_answer)
+                    
                 if clicked(img_o_positions_rect):
                     if tutorial_answer[1] == " ":
                         tutorial_answer[1] = "O"
@@ -2315,7 +2422,7 @@ while run:
                     elif tutorial_answer[1] == "X":
                         tutorial_answer[1] = "O"
                     play_sound("sound/click1.wav")
-                    #print(tutorial_answer)
+                    
                 if clicked(img_x_positions_rect):
                     if tutorial_answer[1] == " ":
                         tutorial_answer[1] = "X"
@@ -2324,7 +2431,7 @@ while run:
                     elif tutorial_answer[1] == "O":
                         tutorial_answer[1] = "X"
                     play_sound("sound/click1.wav")
-                    #print(tutorial_answer)
+                    
                 if tutorial_answer[0] == "O":
                     pygame.draw.rect(screen,color["green"],(567-50-32-10,690-32-10,84,84),width = 3,border_radius = 2)
                 if tutorial_answer[0] == "X":
@@ -2338,11 +2445,13 @@ while run:
                 # hover over submit button
                 if hovered(pygame.Rect(633,760,112,38)):
                     pygame.draw.line(screen,color["green"],(633,760+40),(745,760+40),width= 2)
+                
                 # click submit button
                 if clicked(pygame.Rect(633,760,112,38)):
                     play_sound("sound/click1.wav")
                     tutorial_next_flag = 13
                     tutorial_start_time = tutorial_current_time
+            
             if tutorial_next_flag == 13:
                 # number 1, position 9
                 show_text(screen, "1",(250+80+10, 290+90+90),color["white"],30,"font/F25_bank_Printer.otf")
@@ -2351,7 +2460,6 @@ while run:
                 # number 1, position 7
                 show_text(screen, "1",(250-80-10, 290+90+90),color["grey"],30,"font/F25_bank_Printer.otf")
                 pygame.draw.rect(screen, color["grey"], (210 - 80 - 10, 430, 80, 80),5, border_radius = 2)
-                #print(pygame.mouse.get_pos())
                 img_arrow = pygame.image.load("img/arrow.png")
                 img_biggerarrow = pygame.image.load("img/uparrow.png")
                 img_biggerarrow = pygame.transform.scale(img_biggerarrow,(180,180))
@@ -2359,18 +2467,20 @@ while run:
                 screen.blit(img_biggerarrow,(70,524))
                 multiline_text(screen,23,"<The current Event>\nNumber : 1\nTile position : 9",color["white"],(300,620),1,"font/cleanfont.ttf")
                 multiline_text(screen,23,"<The previous Event>\nNumber : 1\nTile position : 7",color["not too bright white"],(170,732),1,"font/cleanfont.ttf")
+                
                 # if tutorial answer is correct
                 if tutorial_answer == ["O","X"]:
                     texts_tutorials[0] = "Correct answer!\nNumber : O\nPosition : X\n\n<Explanation>\nThe number one event ago is 1.\nThe current number is 1.\nThey are the same number, so the answer is O\n\nThe tile position one event ago is 7.\nThe current tile position is 9.\nThey are different tile positions, so the answer is X\n\n\nNow let's play the game!"
-
 
                 # if tutorial answer is incorrect
                 else:
                     texts_tutorials[0] = f"Wrong answer!\n\nYou chose...Number : {tutorial_answer[0]}, Position : {tutorial_answer[1]}\n\n<Explanation>\nThe number one event ago is 1.\nThe current number is 1.\nThey are the same number, so the answer is O\n\nThe tile position one event ago is 7.\nThe current tile position is 9.\nThey are different tile positions, so the answer is X"
                     show_text(screen,"Try again",(700,700),color["white"],30,"font/F25_bank_Printer.otf")
+                    
                     # hover over try again
                     if hovered(pygame.Rect(600,670,200,60)):
                         pygame.draw.rect(screen,color["white"],(600,670,200,60),3,2)
+                    
                     # click try again
                     if clicked(pygame.Rect(600,670,200,60)):
                         tutorial_answer = [" ", " "]
@@ -2396,7 +2506,7 @@ while run:
                 play_sound("sound/click1.wav")
                 game = 0
 
-
+    # Key controls
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -2420,14 +2530,13 @@ while run:
                     game = 4
 
                 if event.key == pygame.K_5 or event.key == pygame.K_KP5:
-                    # sound_main_menu_intro_flag = True
-                    # main_menu_flag = True
-                    screenheight = 1200
+                    screenwidth = 1300
                     screen = pygame.display.set_mode((screenwidth, screenheight))
                     pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
                     play_sound("sound/playbutton.wav")
                     regenerate_sequence()
                     game = 1
+                
                 if event.key == pygame.K_7 or event.key == pygame.K_KP7:
                     play_sound("sound/click1.wav")
                     sound_main_menu_intro_flag = True
@@ -2443,8 +2552,9 @@ while run:
                 game_pause_flag = True
             elif game == 1 and event.key == pygame.K_p and game_pause_flag == True:
                 game_pause_flag = False
+            
             if game == 1 and game_pause_flag == True and event.key == pygame.K_m:
-                screenheight = 1000
+                screenwidth = 1000
                 screen = pygame.display.set_mode((screenwidth, screenheight))
                 counter = 0
                 questions_start = False
@@ -2468,12 +2578,14 @@ while run:
                 main_menu_flag = True
                 one_tenth_seconds = 0
                 game = 0
+            
             if game == 1 and event.key == pygame.K_s:
-                screenheight = 1000
+                screenwidth = 1000
                 screen = pygame.display.set_mode((screenwidth, screenheight))
                 sound_countdown_flag = False
                 sound_start_flag = False
                 game = 2
+            
             if game == 5 and event.key == pygame.K_m:
                 play_sound("sound/click1.wav")
                 game = 0
@@ -2481,5 +2593,11 @@ while run:
                 
     fps_clock.tick(fps)
     pygame.display.flip()
-os.system("attrib +h level.txt")
+if os.path.isfile("level.txt"):
+    if sys.platform == "win32":
+        os.system("attrib +h level.txt")
+    elif sys.platform == "darwin":
+        os.system("chflags hidden level.txt")
+    elif sys.platform.startswith("linux"):
+        os.system("chattr +i level.txt")
 sys.exit()

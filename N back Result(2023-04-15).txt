@@ -1,0 +1,230 @@
+
+N back Report - 2023-04-15 01:43:34
+Current N : 1 Back / Intervals : 5s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|2|7|5|6|9|6|6|9|5|9|
+  |X|X|X|X|X|O|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|3|3|1|7|2|3|5|2|4|7|
+  |O|X|X|X|X|X|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Score for numbers : 0.0 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+
+
+N back Report - 2023-04-15 01:50:17
+Current N : 1 Back / Intervals : 5s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|3|2|9|6|8|8|2|8|2|2|
+  |X|X|X|X|O|X|X|X|O|
+  | | | | | | | | | |
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|3|2|3|9|3|4|6|3|4|3|
+  |X|X|X|X|X|X|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Score for numbers : 0.0 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+
+
+N back Report - 2023-04-15 02:12:27
+Current N : 1 Back / Intervals : 5s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|7|4|5|6|7|5|6|2|4|1|
+  |X|X|X|X|X|X|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|6|7|7|6|8|5|1|1|8|1|
+  |X|O|X|X|X|X|O|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Score for numbers : 0.0 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+
+
+N back Report - 2023-04-15 08:22:24
+Current N : 1 Back / Intervals : 5s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|3|8|9|3|6|8|8|5|6|8|
+  |X|X|X|X|X|O|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|2|9|2|4|2|4|5|4|8|7|
+  |X|X|X|X|X|X|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Score for numbers : 0.0 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+
+
+N back Report - 2023-04-15 09:55:56
+Current N : 1 Back / Intervals : 5s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|8|7|7|1|2|5|3|8|8|8|
+  |X|O|X|X|X|X|X|O|O|
+  | | | | | | | | | |
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|3|9|9|1|9|2|9|9|2|4|
+  |X|O|X|X|X|X|O|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Score for numbers : 0.0 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+
+
+N back Report - 2023-04-15 09:58:47
+Current N : 1 Back / Intervals : 5s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|4|2|9|1|2|2|2|5|3|7|
+  |X|X|X|X|O|O|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|2|7|6|2|1|3|8|1|9|5|
+  |X|X|X|X|X|X|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Score for numbers : 0.0 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+
+
+N back Report - 2023-04-15 10:04:38
+Current N : 1 Back / Intervals : 2s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|4|8|6|9|6|7|5|1|5|9|
+  |X|X|X|X|X|X|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|4|4|8|7|7|8|7|5|4|3|
+  |O|X|X|O|X|X|X|X|X|
+  | | | | | | | | | |
+----------------------------------------
+Score for numbers : 0.0 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+
+
+N back Report - 2023-04-15 10:32:12
+Current N : 1 Back / Intervals : 5s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|6|7|7|7|5|7|1|7|8|9|
+  |X|O|O|X|X|X|X|X|X|
+  | |O|O| |X|X| | |X|
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|1|1|6|8|2|8|3|9|3|3|
+  |O|X|X|X|X|X|X|X|O|
+  | | | | | | | | | |
+----------------------------------------
+Score for numbers : 55.56 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+
+
+N back Report - 2023-04-15 10:39:12
+Current N : 1 Back / Intervals : 2s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|5|6|
+  |X|
+  | |
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|2|6|
+  |X|
+  | |
+----------------------------------------
+Score for numbers : 0.0 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+
+
+N back Report - 2023-04-15 10:47:06
+Current N : 1 Back / Intervals : 2s
+----------------------------------------
+Numbers :
+Questions, Correct answers, your answers (below)
+|7|5|
+  |X|
+  | |
+----------------------------------------
+Positions :
+|1|2|3|
+|4|5|6| <- Position grid
+|7|8|9|
+Questions, Correct answers, your answers (below)
+|6|4|
+  |X|
+  | |
+----------------------------------------
+Score for numbers : 0.0 %
+Score for positions : 0.0 %
+contact creator : jsk.jinsung@gmail.com 
+

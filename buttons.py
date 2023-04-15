@@ -70,10 +70,10 @@ class Buttons:
             return False
 
 
-    def clicked(self):
-        if self.surface_rect.collidepoint(pygame.mouse.get_pos()):
-            if self.clicked_flag == False and pygame.mouse.get_pressed()[0]:
-                self.clicked_flag = True
-                return True
-            elif self.clicked_flag == True and pygame.mouse.get_pressed()[0] == False:
-                self.clicked_flag = False
+    # def clicked(self):
+    #     if self.surface_rect.collidepoint(pygame.mouse.get_pos()):
+    #         if self.clicked_flag == False and pygame.mouse.get_pressed()[0]:
+    #             self.clicked_flag = True
+    #             return True
+    #         elif self.clicked_flag == True and pygame.mouse.get_pressed()[0] == False:
+    #             self.clicked_flag = False
