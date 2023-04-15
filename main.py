@@ -484,12 +484,34 @@ if os.path.isfile("level.txt"):
 # Score board
 texts_scoreboard = ["Your Rank\nis"]
 
+# Load the background image
+background_image = pygame.image.load('img/background.jpg')
+background_image2 = pygame.image.load('img/background2.jpg')
+background_image3 = pygame.image.load('img/background3.jpg')
+background_image4 = pygame.image.load('img/background4.jpg')
+
 run = True
 while run:
  
     # main menu screen
     if game == 0:
         screen.fill(color["black"])
+
+        # Scale the image to the size of the screen
+        background_image = pygame.transform.scale(background_image, (1000, 1000))
+
+        # Blit the image onto the screen
+        screen.blit(background_image, (0, 0))
+        
+        """
+        texts_mainmenu = [
+            "Dual\nN back", 
+            "How\nto\nplay", 
+            "Exit", 
+            "Game\nsettings", 
+            "Score\nboard" 
+        ]
+        """
         mouse_point = pygame.mouse.get_pos()
         current_count = time.time()
         if main_menu_flag == False:
@@ -521,7 +543,7 @@ while run:
                     pygame.draw.rect(screen, color["white"], third[n], border_radius = 5)
                 pygame.draw.rect(screen, color["white"], second[0], border_radius = 5)
                 pygame.draw.rect(screen, color["white"], second[2], border_radius = 5)
-                multiline_text(screen, 74, texts_mainmenu[0], color["white"], (350 + 150, 350 + 100), 10,"font/sketched.ttf")
+                multiline_text(screen, 70, texts_mainmenu[0], color["white"], (350 + 150, 350 + 100), 10,"font/F25_Bank_Printer.otf")
             if 0 < current_count - start_count < 2.9:
                 show_text(screen, "Press enter to skip", (screenwidth / 2, screenheight / 2),color["white"], 25, "font/cleanfont.ttf")
                 if clicked(button5.surface_rect):
@@ -568,10 +590,10 @@ while run:
             show_text(screen, "9", (945, 695), color["light grey"], 20, "font/F25_bank_Printer.otf")
             if tile_location[4].collidepoint(mouse_point) == False:
                 texts_mainmenu[0] = "Dual\nN back"
-                multiline_text(screen, 74, texts_mainmenu[0], color["white"], (350 + 150, 350 + 100), 10, "font/sketched.ttf")
+                multiline_text(screen, 70, texts_mainmenu[0], color["white"], (350 + 150, 350 + 100), 10, "font/F25_Bank_Printer.otf")
             else:
                 texts_mainmenu[0] = "Play"
-                show_text(screen, texts_mainmenu[0],(350 + 150, 350 + 150, 300), color["white"], 74, "font/sketched.ttf")
+                show_text(screen, texts_mainmenu[0],(350 + 150, 350 + 150, 300), color["white"], 74, "font/F25_Bank_Printer.otf")
             multiline_text(screen, 70, texts_mainmenu[1], color["yellow"], (30 + 150, 20 + 80), 1)
             multiline_text(screen, 65, texts_mainmenu[3], color["green"], (30 + 150, 670 + 110), 1)
             multiline_text(screen, 70, texts_mainmenu[4], color["sky blue"], (670 + 150, 140))
@@ -580,6 +602,12 @@ while run:
     # game screen
     elif game == 1:
         screen.fill(color["black"])
+        
+        # Scale the image to the size of the screen
+        background_image3 = pygame.transform.scale(background_image3, (1300, 1000))
+
+        # Blit the image onto the screen
+        screen.blit(background_image3, (0, 0))
 
         # Count down 3 2 1
         if questions_start == False:
@@ -625,6 +653,11 @@ while run:
             # Paused
             if game_pause_flag == True:
                 screen.fill(color["black"])
+                # Scale the image to the size of the screen
+                background_image4 = pygame.transform.scale(background_image4, (1300, 1000))
+
+                # Blit the image onto the screen
+                screen.blit(background_image4, (0, 0))
                 
                 show_text(screen, texts_pause_screen[0], (screenwidth / 2, 400), color["white"], 70, "font/sketched.ttf")
                 show_text(screen,texts_pause_screen[1], (screenwidth / 2, 550), color["white"], 50, "font/sketched.ttf")
@@ -804,7 +837,7 @@ while run:
                 # mouse hover over effect on stop
                 if hovered(pygame.Rect(1155, 585, 85, 50)):
                     pygame.draw.rect(screen, color["not too bright white"], (1155, 585, 85, 50), 3, 2)
-                
+
                 new_current_count = pygame.time.get_ticks()
                 # every 0.1 second                
                 if new_current_count - new_start_count > 100:
@@ -924,8 +957,24 @@ while run:
                         button_key3_rect.center = 1055, 870
                         button_key4_rect.center = 1215, 870
 
+                        # hover over O button (number)
+                        if hovered(pygame.Rect(1005, 200, 100, 100)):
+                            pygame.draw.rect(screen, color["green"], (1005, 200, 100, 100), 2, 1)
+                        
+                        # hover over X button (number)
+                        if hovered(pygame.Rect(1165, 200, 100, 100)):
+                            pygame.draw.rect(screen, color["red"], (1165, 200, 100, 100), 2, 1)
+
+                        # hover over O button (position)
+                        if hovered(pygame.Rect(1005, 850, 100, 100)):
+                            pygame.draw.rect(screen, color["green"], (1005, 850, 100, 100), 2, 1)
+                        
+                        # hover over X button (position)
+                        if hovered(pygame.Rect(1165, 850, 100, 100)):
+                            pygame.draw.rect(screen, color["red"], (1165, 850, 100, 100), 2, 1)
+                        
                         # numbers O button
-                        if clicked(pygame.Rect(1010, 200, 100, 100)):
+                        if clicked(pygame.Rect(1005, 200, 100, 100)):
                             if user_answer_numbers[counter - current_nback] == " ":
                                 user_answer_numbers[counter - current_nback] = "O"
                             elif user_answer_numbers[counter - current_nback] == "O":
@@ -935,7 +984,7 @@ while run:
                             play_sound("sound/mouseclicko.wav",volume = 0.5)
 
                         # numbers X button
-                        if clicked(pygame.Rect(1175, 200, 100, 100)):
+                        if clicked(pygame.Rect(1165, 200, 100, 100)):
                             if user_answer_numbers[counter - current_nback] == " ":
                                 user_answer_numbers[counter - current_nback] = "X"
                             elif user_answer_numbers[counter - current_nback] == "X":
@@ -945,7 +994,7 @@ while run:
                             play_sound("sound/mouseclickx.wav",volume = 0.5)
 
                         # positions O button
-                        if clicked(pygame.Rect(1010, 850, 100, 100)):
+                        if clicked(pygame.Rect(1005, 850, 100, 100)):
                             if user_answer_location[counter - current_nback] == " ":
                                 user_answer_location[counter - current_nback] = "O"
                             elif user_answer_location[counter - current_nback] == "O":
@@ -955,7 +1004,7 @@ while run:
                             play_sound("sound/mouseclicko.wav",volume = 0.5)
                         
                         # positions X button
-                        if clicked(pygame.Rect(1175, 850, 100, 100)):
+                        if clicked(pygame.Rect(1165, 850, 100, 100)):
                             if user_answer_location[counter - current_nback] == " ":
                                 user_answer_location[counter - current_nback] = "X"
                             elif user_answer_location[counter - current_nback] == "X":
@@ -1164,7 +1213,15 @@ while run:
 
     # score screen
     elif game == 2:
+        
         screen.fill(color["black"])
+        
+        # Scale the image to the size of the screen
+        background_image3 = pygame.transform.scale(background_image3, (1000, 1000))
+
+        # Blit the image onto the screen
+        screen.blit(background_image3, (0, 0))
+
         current_count = time.time()
         
         if score_flag == False:
@@ -1488,6 +1545,12 @@ while run:
     elif game == 3:
         screen.fill(color["black"])
 
+        # Scale the image to the size of the screen
+        background_image2 = pygame.transform.scale(background_image2, (1000, 1000))
+
+        # Blit the image onto the screen
+        screen.blit(background_image2, (0, 0))
+
         """
         texts_game_settings = [
                                 "Game settings","# N", "Choices <numbers>",
@@ -1808,6 +1871,13 @@ while run:
     # scoreboard
     elif game == 4:
         screen.fill(color["dark dark grey"])
+
+        # Scale the image to the size of the screen
+        background_image2 = pygame.transform.scale(background_image2, (1000, 1000))
+
+        # Blit the image onto the screen
+        screen.blit(background_image2, (0, 0))
+
         multiline_text(screen, 80, texts_scoreboard[0], color["white"], (screenwidth / 2, 140), 20)
         try:
             with open("level.txt") as file:
@@ -1964,6 +2034,13 @@ while run:
     # how to play
     elif game == 5:
         screen.fill(color["black"])
+        
+        # Scale the image to the size of the screen
+        background_image2 = pygame.transform.scale(background_image2, (1000, 1000))
+
+        # Blit the image onto the screen
+        screen.blit(background_image2, (0, 0))
+
         show_text(screen,texts_how_to_play[0], (screenwidth / 2, 70), color["yellow"], 75, "font/sketched.ttf")
         show_text(screen,"1. Description",(315,160),color["white"],30,"font/F25_bank_Printer.otf")
         show_text(screen,"2. Tutorial",(685,160),color["white"],30,"font/F25_bank_Printer.otf")
