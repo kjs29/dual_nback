@@ -36,13 +36,15 @@ git clone https://github.com/kjs29/dual_nback.git
 cd dual_nback && pip install -r requirements.txt && python main.py && deactivate
 ```
 
-## Method 2 (Windows only for now) - Download from itch.io
+👨🏻‍💻 Currently figuring out how to convert python file to executable files for all OS.
 
-1. Go to https://kjs29.itch.io/dual_nback and click download button
+~~## Method 2 (Windows only for now) - Download from itch.io~~
 
-2. Unzip the file you downloaded 
+~~1. Go to https://kjs29.itch.io/dual_nback and click download button~~
 
-3. Run `main.exe` file
+~~2. Unzip the file you downloaded~~
+
+~~3. Run `main.exe` file~~
 
 ## How to run the game again once the game is downloaded
 

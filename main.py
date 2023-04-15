@@ -1,10 +1,11 @@
 import sys
+import os
 import datetime
 import time
 import secrets
 import json
 import pygame
-import os
+
 from buttons import Buttons
 
 # initialize pygame module
@@ -51,7 +52,7 @@ game = 0
 
 
 def multiline_text(screen,size,text,color,coor,linespace = 10, fontname = "font/sketched.ttf"):
-    
+
     text_list = text.splitlines()
     for i,e in enumerate(text_list):
         font = pygame.font.Font(fontname, size)
@@ -181,7 +182,7 @@ def play_sound(filename = None, volume = 1, loop = False, channel = -1):
             sound.play(-1)
         else:
             sound.play()
-            
+
 
 # tiles
 
