@@ -134,6 +134,7 @@ def reposition_imgs():
             imgs1_rect[f"img{n}_rect"] = imgs1[f"img{n}"].get_rect(center = (670 + 150, 670 + 150))
             
 def regenerate_sequence():
+    """Regenerate new sequence of questions"""
     global  questions_location, questions_numbers, questions_numbers_rendered_content_lst, questions_number_rect_lst, answer_location, answer_numbers, user_answer_location, user_answer_numbers, choices_numbers, choices_positions, level_flag
     randomNumbers = secrets.SystemRandom()
     questions_location = []
@@ -180,10 +181,7 @@ def play_sound(filename = None, volume = 1, loop = False, channel = -1):
             sound.play(-1)
         else:
             sound.play()
-
-    
-
-
+            
 
 # tiles
 
@@ -791,36 +789,12 @@ while run:
                 if clicked(pygame.Rect(1155, 585, 85, 50)):
                     screenwidth = 1000
                     screen = pygame.display.set_mode((screenwidth, screenheight))
-                    questions_number_rect_lst[counter].center = -200, -200
+                    # stop_flag is for the description in score screen
+                    stop_flag = True
                     sound_countdown_flag = False
                     sound_start_flag = False
-
-                    questions_start = False
-                    start_count_game_screen = False
-                    one_tenth_seconds = 0
-                    game_pause_flag = False
-                    counter = 0
-                    questions_start = False
-                    score_flag = False
-                    button_save_result_flag = False
-                    start_count_game_screen = False
-                    correct_number_of_questions_location = 0
-                    correct_number_of_questions_numbers = 0
-                    pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
-                    reposition_imgs()
-                    lst_texts_in_game[0] = "Start!"
-                    button_position_O_rect.center = -200, -200
-                    button_position_X_rect.center = -200, -200
-                    button_numbers_O_rect.center = -200, -200
-                    button_numbers_X_rect.center = -200, -200
-                    button_key1_rect.center = -200, -200
-                    button_key2_rect.center = -200, -200
-                    button_key3_rect.center = -200, -200
-                    button_key4_rect.center = -200, -200
-                    main_menu_flag = True
-                    game = 0
-
-
+                    questions_number_rect_lst[counter].center = -200, -200
+                    game = 2
 
                 # mouse hover over effect on pause
                 if hovered(pygame.Rect(1020, 585, 110, 50)):
