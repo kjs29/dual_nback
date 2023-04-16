@@ -552,7 +552,8 @@ while run:
         if current_count - start_count >= 3.2 or main_menu_flag == True:
             for i in range(len(tile_location)):
                 if tile_location[i].collidepoint(mouse_point):
-                    pygame.draw.rect(screen, color["green"], tile_location[i], width = 10, border_radius = 10)
+                    # pygame.draw.rect(screen, color["green"], tile_location[i], width = 10, border_radius = 10)
+                    pass
                 else:
                     pygame.draw.rect(screen, color["white"], tile_location[i], width = 3, border_radius = 5)
             
