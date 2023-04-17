@@ -27,10 +27,7 @@ cd ~/Desktop && mkdir pygame_dual_nback && cd pygame_dual_nback && python3 -m ve
 Replace `<username>` with your own username.
 
 ```
-cd C:\Users\<username>\Desktop && mkdir pygame_dual_nback && cd pygame_dual_nback
-python -m venv env && .\env\Scripts\activate
-git clone https://github.com/kjs29/dual_nback.git
-cd dual_nback && pip install -r requirements.txt && python main.py && deactivate
+cd C:\Users\<username>\Desktop && mkdir pygame_dual_nback && cd pygame_dual_nback && python -m venv env && .\env\Scripts\activate && git clone && https://github.com/kjs29/dual_nback.git && cd dual_nback && pip install -r requirements.txt && python main.py && deactivate
 ```
 
 👨🏻‍💻 Currently figuring out how to convert python file to executable files for all OS.
